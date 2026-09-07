@@ -6,6 +6,8 @@ description: "Read typed environment values and define computed fields. `EnvVar`
 tocLevel: 3
 ---
 
+import "../autodoc.css"
+
 # Environment & fields
 
 Read typed environment values and define computed fields. `EnvVar` is a public callable singleton, not a class you need to import from an implementation module.
@@ -43,109 +45,174 @@ with automatic type conversion and template expansion.
 
 ### `get_var`
 
-```python
-def get_var(default: Any=None, *, env: str=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L233)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.envvar.get&#95;var</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L233">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>get&#95;var(<span className="py-api-param">default</span>: <span className="py-api-type">Any</span> = <span className="py-api-default">None</span>, *, <span className="py-api-param">env</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Mark a field as an environment variable.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default"> = None</span></td><td>Default value if env var not set</td></tr>
+<tr><td><code>env</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>Environment variable name (defaults to field name)</td></tr>
+</tbody>
+</table>
 
-- `default`: Default value if env var not set
-- `env`: Environment variable name (defaults to field name)
+</div>
+</section>
 
 <a id="params_proto.envvar--field" />
 
 ### `Field`
 
-```python
-def Field(fn: Callable)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L249)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.envvar.Field</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L249">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Field(<span className="py-api-param">fn</span>: <span className="py-api-type">Callable</span>)</code></pre>
+<div className="py-api-description">
 
 Decorator to mark a method as a computed field.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>fn</code></td><td><code><span className="py-api-type">Callable</span></code><br /><span className="py-api-default">required</span></td><td>The method to decorate</td></tr>
+</tbody>
+</table>
 
-- `fn`: The method to decorate
+<p className="py-api-section-label">Returns</p>
+<p>The decorated method</p>
 
-**Returns**
-
-The decorated method
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar" />
 
 ### `EnvVar`
 
-```python
-EnvVar = _EnvVar()
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L230)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">callable singleton</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L230">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar = &#95;EnvVar()</code></pre>
+<div className="py-api-description">
 
 Environment variable reader that supports three syntaxes:
 
 1. Matmul operator with env var name:
-    batch_size: int = EnvVar @ "BATCH_SIZE"
+
+   ```python
+   batch_size: int = EnvVar @ "BATCH_SIZE"
+   ```
 
 2. Matmul operator with pipe for default:
-    learning_rate: float = EnvVar @ "LR" | 0.001
+
+   ```python
+   learning_rate: float = EnvVar @ "LR" | 0.001
+   ```
 
 3. Function call syntax:
-    db_url: str = EnvVar("DATABASE_URL", default="localhost")
-    data_dir: str = EnvVar("$DATA_DIR/models", default="/tmp/models")
+
+   ```python
+   db_url: str = EnvVar("DATABASE_URL", default="localhost")
+   data_dir: str = EnvVar("$DATA_DIR/models", default="/tmp/models")
+   ```
 
 4. OR operation with multiple env var names (tries each in order):
-    api_key: str = EnvVar @ "API_KEY" @ "SECRET_KEY" | "default"
-    # Or function syntax:
-    api_key: str = EnvVar("API_KEY", "SECRET_KEY", default="default")
+
+   ```python
+   api_key: str = EnvVar @ "API_KEY" @ "SECRET_KEY" | "default"
+   # Or function syntax:
+   api_key: str = EnvVar("API_KEY", "SECRET_KEY", default="default")
+   ```
 
 The pipe operator (|) allows clean chaining of env var name with fallback value.
 Values are loaded lazily - environment variables are read at access time, not definition time.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;templates</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">variadic</span></td><td>One or more environment variable names or template strings. When multiple are provided, they are checked in order (OR operation).</td></tr>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default"> = None</span></td><td>Default value if no environment variable is set</td></tr>
+<tr><td><code>dtype</code></td><td><code><span className="py-api-type">type</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional type to convert the value to (overrides annotation inference)</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.__init__" />
 
 #### `EnvVar.__init__`
 
-```python
-def __init__(self, *templates: str, default: Any=None, dtype: type=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L37)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L37">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.&#95;&#95;init&#95;&#95;(<span className="py-api-param">&#42;templates</span>: <span className="py-api-type">str</span>, <span className="py-api-param">default</span>: <span className="py-api-type">Any</span> = <span className="py-api-default">None</span>, <span className="py-api-param">dtype</span>: <span className="py-api-type">type</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Create an environment variable reader.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;templates</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">variadic</span></td><td>One or more environment variable names or template strings. When multiple are provided, they are checked in order (OR operation).</td></tr>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default"> = None</span></td><td>Default value if no environment variable is set</td></tr>
+<tr><td><code>dtype</code></td><td><code><span className="py-api-type">type</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional type to convert the value to (overrides annotation inference)</td></tr>
+</tbody>
+</table>
 
-- `*templates`: One or more environment variable names or template strings.
-  When multiple are provided, they are checked in order (OR operation).
-- `default`: Default value if no environment variable is set
-- `dtype`: Optional type to convert the value to (overrides annotation inference)
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.template" />
 
 #### `EnvVar.template`
 
-```python
-def template(self)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L57)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.template</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L57">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.template</code></pre>
+<div className="py-api-description">
 
 Backward compatibility: return first template or None.
+
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.__matmul__" />
 
 #### `EnvVar.__matmul__`
 
-```python
-def __matmul__(self, other: Any)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L61)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.&#95;&#95;matmul&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L61">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.&#95;&#95;matmul&#95;&#95;(<span className="py-api-param">other</span>: <span className="py-api-type">Any</span>)</code></pre>
+<div className="py-api-description">
 
 Support EnvVar @ "VAR_NAME" syntax, chainable for OR operation.
 
@@ -160,23 +227,32 @@ EnvVar @ "VAR1" @ "VAR2" | default  # With fallback
 Note: The | operator has lower precedence than @, so
 `EnvVar @ "A" @ "B" | default` is parsed as `(EnvVar @ "A" @ "B") | default`.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>other</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default">required</span></td><td>Either an environment variable name (str) or a default value</td></tr>
+</tbody>
+</table>
 
-- `other`: Either an environment variable name (str) or a default value
+<p className="py-api-section-label">Returns</p>
+<p>New &#95;EnvVar instance configured with the given parameter</p>
 
-**Returns**
-
-New _EnvVar instance configured with the given parameter
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.__or__" />
 
 #### `EnvVar.__or__`
 
-```python
-def __or__(self, other: Any)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L86)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.&#95;&#95;or&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L86">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.&#95;&#95;or&#95;&#95;(<span className="py-api-param">other</span>: <span className="py-api-type">Any</span>)</code></pre>
+<div className="py-api-description">
 
 Support chaining with | to specify default value.
 
@@ -185,23 +261,32 @@ Syntax: EnvVar @ "VAR_NAME" | default_value
 Note: Using `or` instead of `|` will NOT work because `or` has lower
 precedence than @ and evaluates truthiness instead of calling __or__.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>other</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default">required</span></td><td>Default value to use if env var is not set</td></tr>
+</tbody>
+</table>
 
-- `other`: Default value to use if env var is not set
+<p className="py-api-section-label">Returns</p>
+<p>New &#95;EnvVar instance with both template(s) and default</p>
 
-**Returns**
-
-New _EnvVar instance with both template(s) and default
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.__call__" />
 
 #### `EnvVar.__call__`
 
-```python
-def __call__(self, *templates: str, default: Any=None, dtype: type=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L103)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.&#95;&#95;call&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L103">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.&#95;&#95;call&#95;&#95;(<span className="py-api-param">&#42;templates</span>: <span className="py-api-type">str</span>, <span className="py-api-param">default</span>: <span className="py-api-type">Any</span> = <span className="py-api-default">None</span>, <span className="py-api-param">dtype</span>: <span className="py-api-type">type</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Support EnvVar("VAR_NAME", ..., default=...) function call syntax.
 
@@ -213,27 +298,39 @@ EnvVar("API_KEY", "SECRET_KEY", default="fallback")  # OR operation
 EnvVar("PORT", dtype=int, default=8080)  # With type conversion
 ```
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;templates</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">variadic</span></td><td>One or more environment variable names or template strings</td></tr>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default"> = None</span></td><td>Default value if no environment variable is set</td></tr>
+<tr><td><code>dtype</code></td><td><code><span className="py-api-type">type</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional type to convert the value to</td></tr>
+</tbody>
+</table>
 
-- `*templates`: One or more environment variable names or template strings
-- `default`: Default value if no environment variable is set
-- `dtype`: Optional type to convert the value to
+<p className="py-api-section-label">Returns</p>
+<p>New &#95;EnvVar instance configured with the given parameters</p>
 
-**Returns**
-
-New _EnvVar instance configured with the given parameters
+</div>
+</section>
 
 <a id="params_proto.envvar--envvar.invalidate_cache" />
 
 #### `EnvVar.invalidate_cache`
 
-```python
-def invalidate_cache(self)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L156)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.envvar.EnvVar.invalidate&#95;cache</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L156">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>EnvVar.invalidate&#95;cache()</code></pre>
+<div className="py-api-description">
 
 Clear the cached value, forcing re-read from environment on next access.
+
+</div>
+</section>
 
 <a id="params_proto.envvar--public-imports" />
 
@@ -250,31 +347,57 @@ These symbols are available from this module. Their definitions are documented i
 
 ### `parse_env_template`
 
-```python
-def parse_env_template(template: str) -> List[str]
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L5)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.parse&#95;env&#95;template.parse&#95;env&#95;template</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L5">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>parse&#95;env&#95;template(<span className="py-api-param">template</span>: <span className="py-api-type">str</span>) → <span className="py-api-type">List</span>[<span className="py-api-type">str</span>]</code></pre>
+<div className="py-api-description">
 
 Extract and return the environment variable names from a given string template.
 
-:param template: A string template that potentially contains environment variables
-                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
-:return: A list of environment variable names found in the template.
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>template</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>A string template that potentially contains environment variables in the format $VAR&#95;NAME, $&#123;VAR&#95;NAME&#125;, or similar.</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">List</span>[<span className="py-api-type">str</span>]</code> — A list of environment variable names found in the template.</p>
+
+</div>
+</section>
 
 <a id="params_proto.parse_env_template--all_available" />
 
 ### `all_available`
 
-```python
-def all_available(template: str, strict=True) -> bool
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L19)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.parse&#95;env&#95;template.all&#95;available</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L19">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>all&#95;available(<span className="py-api-param">template</span>: <span className="py-api-type">str</span>, <span className="py-api-param">strict</span> = <span className="py-api-default">True</span>) → <span className="py-api-type">bool</span></code></pre>
+<div className="py-api-description">
 
 Check if all environment variables in the template are available in the current environment.
 
-:param template: A string template that potentially contains environment variables
-                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
-:param strict: If True, treat empty environment variables as undefined. Otherwise, treat them as defined.
-:return: True if all environment variables are available, False otherwise.
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>template</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>A string template that potentially contains environment variables in the format $VAR&#95;NAME, $&#123;VAR&#95;NAME&#125;, or similar.</td></tr>
+<tr><td><code>strict</code></td><td><code>—</code><br /><span className="py-api-default"> = True</span></td><td>If True, treat empty environment variables as undefined. Otherwise, treat them as defined.</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">bool</span></code> — True if all environment variables are available, False otherwise.</p>
+
+</div>
+</section>

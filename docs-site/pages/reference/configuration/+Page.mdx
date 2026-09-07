@@ -6,6 +6,8 @@ description: "Declare parameters on a class or function, expose them as a CLI, a
 tocLevel: 3
 ---
 
+import "../autodoc.css"
+
 # Configuration
 
 Declare parameters on a class or function, expose them as a CLI, and apply overrides without threading configuration through every call.
@@ -61,110 +63,200 @@ Core decorators and functionality for declarative parameter management.
 
 ### `ProtoResult`
 
-```python
-class ProtoResult
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L66)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.proto.ProtoResult</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L66">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ProtoResult(<span className="py-api-param">data</span>: <span className="py-api-type">dict</span>)</code></pre>
+<div className="py-api-description">
 
 Result object that provides attribute access to function results.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>data</code></td><td><code><span className="py-api-type">dict</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--protoresult.__init__" />
 
 #### `ProtoResult.__init__`
 
-```python
-def __init__(self, data: dict)
-```
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.proto.ProtoResult.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L69">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ProtoResult.&#95;&#95;init&#95;&#95;(<span className="py-api-param">data</span>: <span className="py-api-type">dict</span>)</code></pre>
+<div className="py-api-description">
 
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L69)
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>data</code></td><td><code><span className="py-api-type">dict</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--protowrapper" />
 
 ### `ProtoWrapper`
 
-```python
-class ProtoWrapper
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L101)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.proto.ProtoWrapper</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L101">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ProtoWrapper(<span className="py-api-param">func</span>: <span className="py-api-type">Callable</span>, <span className="py-api-param">is&#95;cli</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">is&#95;prefix</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">prog</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Wrapper for proto-decorated functions.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>func</code></td><td><code><span className="py-api-type">Callable</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>is&#95;cli</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+<tr><td><code>is&#95;prefix</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+<tr><td><code>prog</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--protowrapper.__init__" />
 
 #### `ProtoWrapper.__init__`
 
-```python
-def __init__(self, func: Callable, is_cli: bool=False, is_prefix: bool=False, prog: str=None)
-```
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.proto.ProtoWrapper.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L104">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ProtoWrapper.&#95;&#95;init&#95;&#95;(<span className="py-api-param">func</span>: <span className="py-api-type">Callable</span>, <span className="py-api-param">is&#95;cli</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">is&#95;prefix</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">prog</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L104)
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>func</code></td><td><code><span className="py-api-type">Callable</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>is&#95;cli</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+<tr><td><code>is&#95;prefix</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+<tr><td><code>prog</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--ptype" />
 
 ### `ptype`
 
-```python
-class ptype(type)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L499)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.proto.ptype</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L499">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>class ptype(type)</code></pre>
+<p className="py-api-meta">Bases: <span className="py-api-type">type</span></p>
+<div className="py-api-description">
 
 Metaclass for proto-decorated classes that intercepts attribute access.
+
+</div>
+</section>
 
 <a id="params_proto.proto--proto" />
 
 ### `proto`
 
-```python
-def proto(cls_or_func: Callable=None, *, cli: bool=False, prefix: bool=False, prefix_name: str=None, prog: str=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L703)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.proto</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L703">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>proto(<span className="py-api-param">cls&#95;or&#95;func</span>: <span className="py-api-type">Callable</span> = <span className="py-api-default">None</span>, *, <span className="py-api-param">cli</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">prefix</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>, <span className="py-api-param">prefix&#95;name</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>, <span className="py-api-param">prog</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Main proto decorator that converts a class or function into a proto config object.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>cls&#95;or&#95;func</code></td><td><code><span className="py-api-type">Callable</span></code><br /><span className="py-api-default"> = None</span></td><td>The class or function to decorate</td></tr>
+<tr><td><code>cli</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>If True, this is a CLI entry point (generates help)</td></tr>
+<tr><td><code>prefix</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>If True, creates a singleton instance with prefix in CLI</td></tr>
+<tr><td><code>prefix&#95;name</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>Custom prefix name (defaults to lowercase class/function name)</td></tr>
+<tr><td><code>prog</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional program name override for help generation (useful for testing)</td></tr>
+</tbody>
+</table>
 
-- `cls_or_func`: The class or function to decorate
-- `cli`: If True, this is a CLI entry point (generates help)
-- `prefix`: If True, creates a singleton instance with prefix in CLI
-- `prefix_name`: Custom prefix name (defaults to lowercase class/function name)
-- `prog`: Optional program name override for help generation (useful for testing)
+<p className="py-api-section-label">Returns</p>
+<p>Decorated class/function with attribute setting and calling support</p>
 
-**Returns**
-
-Decorated class/function with attribute setting and calling support
+</div>
+</section>
 
 <a id="params_proto.proto--cli_decorator" />
 
 ### `cli_decorator`
 
-```python
-def cli_decorator(cls_or_func)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L886)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.cli&#95;decorator</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L886">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>cli&#95;decorator(<span className="py-api-param">cls&#95;or&#95;func</span>)</code></pre>
+<div className="py-api-description">
 
 Decorator for CLI entry points.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>cls&#95;or&#95;func</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--prefix_decorator" />
 
 ### `prefix_decorator`
 
-```python
-def prefix_decorator(cls_or_func=None, name: str=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L891)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.prefix&#95;decorator</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L891">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>prefix&#95;decorator(<span className="py-api-param">cls&#95;or&#95;func</span> = <span className="py-api-default">None</span>, <span className="py-api-param">name</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Decorator for prefixed singleton configs.
-
-**Args**
-
-- `cls_or_func`: The class or function to decorate (or prefix name if called with string)
-- `name`: Optional custom prefix name (defaults to lowercase class/function name)
 
 **Examples**
 
@@ -176,78 +268,152 @@ class Config: ...
 class Config: ...
 ```
 
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>cls&#95;or&#95;func</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>The class or function to decorate (or prefix name if called with string)</td></tr>
+<tr><td><code>name</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional custom prefix name (defaults to lowercase class/function name)</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
 <a id="params_proto.proto--bindcontext" />
 
 ### `BindContext`
 
-```python
-class BindContext
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L923)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.proto.BindContext</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L923">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>BindContext(<span className="py-api-param">prev&#95;state</span>, <span className="py-api-param">&#42;&#42;kwargs</span>)</code></pre>
+<div className="py-api-description">
 
 Context manager for parameter bindings that also works as a direct call.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>prev&#95;state</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--bindcontext.__init__" />
 
 #### `BindContext.__init__`
 
-```python
-def __init__(self, prev_state, **kwargs)
-```
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.proto.BindContext.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L926">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>BindContext.&#95;&#95;init&#95;&#95;(<span className="py-api-param">prev&#95;state</span>, <span className="py-api-param">&#42;&#42;kwargs</span>)</code></pre>
+<div className="py-api-description">
 
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L926)
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>prev&#95;state</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--bind" />
 
 ### `bind`
 
-```python
-def bind(**kwargs)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L940)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.bind</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L940">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>bind(<span className="py-api-param">&#42;&#42;kwargs</span>)</code></pre>
+<div className="py-api-description">
 
 Bind parameter overrides.
 
 Can be used as context manager:
-    with proto.bind(seed=42, **&#123;"train.lr": 0.01&#125;):
-        result = main()
+
+```python
+with proto.bind(seed=42, **{"train.lr": 0.01}):
+    result = main()
+```
 
 Or as direct call (sets global bindings):
-    proto.bind(seed=42, **&#123;"train.lr": 0.01&#125;)
-    result = main()
+
+```python
+proto.bind(seed=42, **{"train.lr": 0.01})
+result = main()
+```
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
 
 <a id="params_proto.proto--parse" />
 
 ### `parse`
 
-```python
-def parse(func: Callable, **kwargs)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L963)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.parse</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L963">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>parse(<span className="py-api-param">func</span>: <span className="py-api-type">Callable</span>, <span className="py-api-param">&#42;&#42;kwargs</span>)</code></pre>
+<div className="py-api-description">
 
 Parse overrides and call a function.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>func</code></td><td><code><span className="py-api-type">Callable</span></code><br /><span className="py-api-default">required</span></td><td>The function to call</td></tr>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>Override values (can use dot notation)</td></tr>
+</tbody>
+</table>
 
-- `func`: The function to call
-- `**kwargs`: Override values (can use dot notation)
+<p className="py-api-section-label">Returns</p>
+<p>Result of calling func with overrides applied</p>
 
-**Returns**
-
-Result of calling func with overrides applied
+</div>
+</section>
 
 <a id="params_proto.proto--cli" />
 
 ### `cli`
 
-```python
-def cli(obj: Any=None, *, prog: str=None)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L993)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.cli</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L993">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>cli(<span className="py-api-param">obj</span>: <span className="py-api-type">Any</span> = <span className="py-api-default">None</span>, *, <span className="py-api-param">prog</span>: <span className="py-api-type">str</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
 
 Set up an object as a CLI entry point.
 
@@ -255,35 +421,38 @@ By default, subcommand attributes don't require prefix (--epochs works).
 If the subcommand class is decorated with @proto.prefix, prefix is required
 (--config.epochs).
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>obj</code></td><td><code><span className="py-api-type">Any</span></code><br /><span className="py-api-default"> = None</span></td><td>The class, function, or Union type to setup as CLI. If None, returns a decorator.</td></tr>
+<tr><td><code>prog</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = None</span></td><td>Optional program name override for help generation (useful for testing)</td></tr>
+</tbody>
+</table>
 
-- `obj`: The class, function, or Union type to setup as CLI.
-  If None, returns a decorator.
-- `prog`: Optional program name override for help generation (useful for testing)
+<p className="py-api-section-label">Returns</p>
+<p>The object with CLI capabilities, or a decorator if obj is None</p>
 
-**Returns**
-
-The object with CLI capabilities, or a decorator if obj is None
+</div>
+</section>
 
 <a id="params_proto.proto--partial" />
 
 ### `partial`
 
-```python
-def partial(config_class: Type, method: bool=False)
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L1026)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.proto.partial</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L1026">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>partial(<span className="py-api-param">config&#95;class</span>: <span className="py-api-type">Type</span>, <span className="py-api-param">method</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">False</span>)</code></pre>
+<div className="py-api-description">
 
 Decorator that injects parameter defaults from a config class into a function.
 
 This allows you to define a plain class with type-annotated attributes and their
 defaults, then use those defaults to populate function parameters automatically.
-
-**Args**
-
-- `config_class`: A class with type-annotated attributes serving as parameter defaults
-- `method`: If True, wraps as a method (for class methods)
 
 **Example**
 
@@ -306,6 +475,17 @@ for Config.lr in [0.01, 0.001, 0.0001]:
   train()
 ```
 
-**Returns**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>config&#95;class</code></td><td><code><span className="py-api-type">Type</span></code><br /><span className="py-api-default">required</span></td><td>A class with type-annotated attributes serving as parameter defaults</td></tr>
+<tr><td><code>method</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = False</span></td><td>If True, wraps as a method (for class methods)</td></tr>
+</tbody>
+</table>
 
-Decorated function with config values injected as defaults
+<p className="py-api-section-label">Returns</p>
+<p>Decorated function with config values injected as defaults</p>
+
+</div>
+</section>

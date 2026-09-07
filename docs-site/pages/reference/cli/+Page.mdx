@@ -6,6 +6,8 @@ description: "Most applications only need [`@proto.cli`](/reference/configuratio
 tocLevel: 3
 ---
 
+import "../autodoc.css"
+
 # CLI helpers
 
 Most applications only need [`@proto.cli`](/reference/configuration#params_proto.proto--cli). These lower-level functions support custom command-line parsing and help rendering.
@@ -85,154 +87,146 @@ Performance:
 
 ### `Colors`
 
-```python
-class Colors
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L39)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.Colors</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L39">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>class Colors</code></pre>
+<div className="py-api-description">
 
 ANSI color codes for terminal formatting.
 
-```python
-RESET = '\x1b[0m'
-```
+<p className="py-api-section-label">Attributes</p>
+<table className="py-api-fields">
+<thead><tr><th>Name</th><th>Type / value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><a id="params_proto.cli.ansi_help--colors.reset" /><code>RESET</code></td><td><code>&#x27;\x1b[0m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bold" /><code>BOLD</code></td><td><code>&#x27;\x1b[1m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.dim" /><code>DIM</code></td><td><code>&#x27;\x1b[2m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.red" /><code>RED</code></td><td><code>&#x27;\x1b[31m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.green" /><code>GREEN</code></td><td><code>&#x27;\x1b[32m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.yellow" /><code>YELLOW</code></td><td><code>&#x27;\x1b[33m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.blue" /><code>BLUE</code></td><td><code>&#x27;\x1b[34m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.magenta" /><code>MAGENTA</code></td><td><code>&#x27;\x1b[35m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.cyan" /><code>CYAN</code></td><td><code>&#x27;\x1b[36m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.white" /><code>WHITE</code></td><td><code>&#x27;\x1b[37m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;black" /><code>BRIGHT&#95;BLACK</code></td><td><code>&#x27;\x1b[90m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;red" /><code>BRIGHT&#95;RED</code></td><td><code>&#x27;\x1b[91m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;green" /><code>BRIGHT&#95;GREEN</code></td><td><code>&#x27;\x1b[92m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;yellow" /><code>BRIGHT&#95;YELLOW</code></td><td><code>&#x27;\x1b[93m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;blue" /><code>BRIGHT&#95;BLUE</code></td><td><code>&#x27;\x1b[94m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;magenta" /><code>BRIGHT&#95;MAGENTA</code></td><td><code>&#x27;\x1b[95m&#x27;</code></td><td>—</td></tr>
+<tr><td><a id="params_proto.cli.ansi_help--colors.bright&#95;cyan" /><code>BRIGHT&#95;CYAN</code></td><td><code>&#x27;\x1b[96m&#x27;</code></td><td>—</td></tr>
+</tbody>
+</table>
 
-```python
-BOLD = '\x1b[1m'
-```
-
-```python
-DIM = '\x1b[2m'
-```
-
-```python
-RED = '\x1b[31m'
-```
-
-```python
-GREEN = '\x1b[32m'
-```
-
-```python
-YELLOW = '\x1b[33m'
-```
-
-```python
-BLUE = '\x1b[34m'
-```
-
-```python
-MAGENTA = '\x1b[35m'
-```
-
-```python
-CYAN = '\x1b[36m'
-```
-
-```python
-WHITE = '\x1b[37m'
-```
-
-```python
-BRIGHT_BLACK = '\x1b[90m'
-```
-
-```python
-BRIGHT_RED = '\x1b[91m'
-```
-
-```python
-BRIGHT_GREEN = '\x1b[92m'
-```
-
-```python
-BRIGHT_YELLOW = '\x1b[93m'
-```
-
-```python
-BRIGHT_BLUE = '\x1b[94m'
-```
-
-```python
-BRIGHT_MAGENTA = '\x1b[95m'
-```
-
-```python
-BRIGHT_CYAN = '\x1b[96m'
-```
+</div>
+</section>
 
 <a id="params_proto.cli.ansi_help--get_terminal_width" />
 
 ### `get_terminal_width`
 
-```python
-def get_terminal_width(default: int=80, max_width: int=120) -> int
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L68)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.get&#95;terminal&#95;width</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L68">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>get&#95;terminal&#95;width(<span className="py-api-param">default</span>: <span className="py-api-type">int</span> = <span className="py-api-default">80</span>, <span className="py-api-param">max&#95;width</span>: <span className="py-api-type">int</span> = <span className="py-api-default">120</span>) → <span className="py-api-type">int</span></code></pre>
+<div className="py-api-description">
 
 Get the current terminal width.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">int</span></code><br /><span className="py-api-default"> = 80</span></td><td>Default width if terminal size cannot be detected</td></tr>
+<tr><td><code>max&#95;width</code></td><td><code><span className="py-api-type">int</span></code><br /><span className="py-api-default"> = 120</span></td><td>Maximum width to use even if terminal is wider</td></tr>
+</tbody>
+</table>
 
-- `default`: Default width if terminal size cannot be detected
-- `max_width`: Maximum width to use even if terminal is wider
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">int</span></code> — Terminal width in characters</p>
 
-**Returns**
-
-Terminal width in characters
+</div>
+</section>
 
 <a id="params_proto.cli.ansi_help--strip_ansi" />
 
 ### `strip_ansi`
 
-```python
-def strip_ansi(text: str) -> str
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L87)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.strip&#95;ansi</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L87">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>strip&#95;ansi(<span className="py-api-param">text</span>: <span className="py-api-type">str</span>) → <span className="py-api-type">str</span></code></pre>
+<div className="py-api-description">
 
 Remove ANSI escape codes from text.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>text</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>Text potentially containing ANSI codes</td></tr>
+</tbody>
+</table>
 
-- `text`: Text potentially containing ANSI codes
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">str</span></code> — Plain text with ANSI codes removed</p>
 
-**Returns**
-
-Plain text with ANSI codes removed
+</div>
+</section>
 
 <a id="params_proto.cli.ansi_help--wrap_text_with_ansi" />
 
 ### `wrap_text_with_ansi`
 
-```python
-def wrap_text_with_ansi(text: str, width: int, indent: str='') -> list
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L100)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.wrap&#95;text&#95;with&#95;ansi</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L100">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>wrap&#95;text&#95;with&#95;ansi(<span className="py-api-param">text</span>: <span className="py-api-type">str</span>, <span className="py-api-param">width</span>: <span className="py-api-type">int</span>, <span className="py-api-param">indent</span>: <span className="py-api-type">str</span> = <span className="py-api-default">&#x27;&#x27;</span>) → <span className="py-api-type">list</span></code></pre>
+<div className="py-api-description">
 
 Wrap text while preserving ANSI codes.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>text</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>Text to wrap (may contain ANSI codes)</td></tr>
+<tr><td><code>width</code></td><td><code><span className="py-api-type">int</span></code><br /><span className="py-api-default">required</span></td><td>Target width for wrapping</td></tr>
+<tr><td><code>indent</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = &#x27;&#x27;</span></td><td>Indentation string for wrapped lines</td></tr>
+</tbody>
+</table>
 
-- `text`: Text to wrap (may contain ANSI codes)
-- `width`: Target width for wrapping
-- `indent`: Indentation string for wrapped lines
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">list</span></code> — List of wrapped lines</p>
 
-**Returns**
-
-List of wrapped lines
+</div>
+</section>
 
 <a id="params_proto.cli.ansi_help--colorize_help" />
 
 ### `colorize_help`
 
-```python
-def colorize_help(help_str: str, width: Optional[int]=None) -> str
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L140)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.colorize&#95;help</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L140">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>colorize&#95;help(<span className="py-api-param">help&#95;str</span>: <span className="py-api-type">str</span>, <span className="py-api-param">width</span>: <span className="py-api-type">Optional</span>[<span className="py-api-type">int</span>] = <span className="py-api-default">None</span>) → <span className="py-api-type">str</span></code></pre>
+<div className="py-api-description">
 
 Add ANSI colors and line wrapping to help text.
 
@@ -243,34 +237,49 @@ Colorization:
   Example: [36m(default:[0m [1m[36m128[0m[36m)[0m
 - Option names (--foo) -&gt; plain text (no formatting)
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>help&#95;str</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>Plain text help string</td></tr>
+<tr><td><code>width</code></td><td><code><span className="py-api-type">Optional</span>[<span className="py-api-type">int</span>]</code><br /><span className="py-api-default"> = None</span></td><td>Terminal width (auto-detected if None)</td></tr>
+</tbody>
+</table>
 
-- `help_str`: Plain text help string
-- `width`: Terminal width (auto-detected if None)
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">str</span></code> — ANSI-formatted help text with proper line wrapping</p>
 
-**Returns**
-
-ANSI-formatted help text with proper line wrapping
+</div>
+</section>
 
 <a id="params_proto.cli.ansi_help--get_ansi_help" />
 
 ### `get_ansi_help`
 
-```python
-def get_ansi_help(wrapper) -> str
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L361)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.ansi&#95;help.get&#95;ansi&#95;help</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/ansi_help.py#L361">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>get&#95;ansi&#95;help(<span className="py-api-param">wrapper</span>) → <span className="py-api-type">str</span></code></pre>
+<div className="py-api-description">
 
 Get ANSI-formatted help string from a proto wrapper.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>wrapper</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>ProtoWrapper instance with &#95;&#95;help&#95;str&#95;&#95;</td></tr>
+</tbody>
+</table>
 
-- `wrapper`: ProtoWrapper instance with __help_str__
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">str</span></code> — ANSI-formatted help text</p>
 
-**Returns**
-
-ANSI-formatted help text
+</div>
+</section>
 <a id="params_proto.cli.cli_parse" />
 
 ## params_proto.cli.cli_parse
@@ -284,18 +293,27 @@ Simple custom parser - no argparse dependency.
 
 ### `parse_cli_args`
 
-```python
-def parse_cli_args(wrapper) -> Dict[str, Any]
-```
-
-[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/cli_parse.py#L212)
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.cli.cli&#95;parse.parse&#95;cli&#95;args</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/cli/cli_parse.py#L212">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>parse&#95;cli&#95;args(<span className="py-api-param">wrapper</span>) → <span className="py-api-type">Dict</span>[<span className="py-api-type">str</span>, <span className="py-api-type">Any</span>]</code></pre>
+<div className="py-api-description">
 
 Parse CLI arguments for a ProtoWrapper.
 
-**Args**
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>wrapper</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>ProtoWrapper instance</td></tr>
+</tbody>
+</table>
 
-- `wrapper`: ProtoWrapper instance
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">Dict</span>[<span className="py-api-type">str</span>, <span className="py-api-type">Any</span>]</code> — Dictionary of parsed arguments</p>
 
-**Returns**
-
-Dictionary of parsed arguments
+</div>
+</section>
