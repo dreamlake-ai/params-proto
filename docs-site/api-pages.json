@@ -1,0 +1,67 @@
+{
+  "pages": [
+    {
+      "slug": "configuration",
+      "title": "Configuration",
+      "modules": [
+        "params_proto.proto"
+      ],
+      "description": "Declare parameters on a class or function, expose them as a CLI, and apply overrides without threading configuration through every call.",
+      "intro": "Declare parameters on a class or function, expose them as a CLI, and apply overrides without threading configuration through every call.\n\n```python\nfrom params_proto import proto\n\n@proto\nclass Config:\n    learning_rate: float = 0.001\n    batch_size: int = 32\n\nwith proto.bind(learning_rate=0.01):\n    print(Config.learning_rate)\n```\n\n| Public entry point | Definition |\n| --- | --- |\n| `@proto` | [proto](#params_proto.proto--proto) |\n| `@proto.cli` | [cli](#params_proto.proto--cli) |\n| `@proto.prefix` | [prefix_decorator](#params_proto.proto--prefix_decorator) |\n| `proto.bind` | [bind](#params_proto.proto--bind) |\n| `proto.parse` | [parse](#params_proto.proto--parse) |\n| `proto.partial` | [partial](#params_proto.proto--partial) |\n\n`proto` exposes these helpers as attributes. The names below are their definitions in source. For decorator order and examples, see [configuration patterns](/key_concepts/configuration-patterns) and [CLI applications](/examples/cli_applications).",
+      "order": 310
+    },
+    {
+      "slug": "environment",
+      "title": "Environment & fields",
+      "modules": [
+        "params_proto.envvar",
+        "params_proto.parse_env_template"
+      ],
+      "description": "Read typed environment values and define computed fields. `EnvVar` is a public callable singleton, not a class you need to import from an implementation module.",
+      "intro": "Read typed environment values and define computed fields. `EnvVar` is a public callable singleton, not a class you need to import from an implementation module.\n\n```python\nfrom params_proto import proto, EnvVar, Field\n\n@proto\nclass Config:\n    port: int = EnvVar @ \"PORT\" | 8080\n```\n\nEnvironment values resolve lazily when accessed. See the [environment guide](/key_concepts/environment_variables) for template expansion and defaults. `parse_env_template` and `all_available` are lower-level template helpers.",
+      "order": 311
+    },
+    {
+      "slug": "sweeps",
+      "title": "Parameter sweeps",
+      "modules": [
+        "params_proto.hyper",
+        "params_proto.hyper.sweep",
+        "params_proto.hyper.proxies"
+      ],
+      "description": "Compose parameter combinations, iterate experiments, and save or reload configurations. Start with `Sweep`; `piter` builds parameter iterators. The proxy and iterator classes below describe the supporting objects.",
+      "intro": "Compose parameter combinations, iterate experiments, and save or reload configurations. Start with `Sweep`; `piter` builds parameter iterators. The proxy and iterator classes below describe the supporting objects.\n\n```python\nfrom params_proto import Sweep\n```\n\nSee [hyperparameter sweeps](/key_concepts/hyperparameter_sweeps) for complete examples.",
+      "order": 312
+    },
+    {
+      "slug": "cli",
+      "title": "CLI helpers",
+      "modules": [
+        "params_proto.cli",
+        "params_proto.cli.cli_parse",
+        "params_proto.cli.ansi_help"
+      ],
+      "description": "Most applications only need [`@proto.cli`](/reference/configuration#params_proto.proto--cli). These lower-level functions support custom command-line parsing and help rendering.",
+      "intro": "Most applications only need [`@proto.cli`](/reference/configuration#params_proto.proto--cli). These lower-level functions support custom command-line parsing and help rendering.\n\n```python\nfrom params_proto.cli import parse_cli_args, colorize_help, get_terminal_width\n```\n\n`parse_cli_args` consumes a decorated wrapper; it is not a general argument-list parser. For everyday usage, follow [CLI applications](/examples/cli_applications).",
+      "order": 313
+    },
+    {
+      "slug": "compatibility",
+      "title": "Compatibility",
+      "modules": [
+        "params_proto.v1*",
+        "params_proto.v2*"
+      ],
+      "description": "These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation.",
+      "intro": "These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation.\n\n```python\nfrom params_proto.v2 import ParamsProto, Proto, PrefixProto\n```\n\nUse [migration](/migration) when upgrading. Module headings below distinguish v1 from v2 definitions, including classes with the same name.",
+      "order": 314
+    }
+  ],
+  "exclude": {
+    "params_proto": "Handwritten public API overview links to canonical definitions.",
+    "params_proto.app": "Placeholder lambda with no implemented API.",
+    "params_proto.documentation": "Private documentation extraction implementation.",
+    "params_proto.type_utils": "Private type conversion implementation.",
+    "params_proto.cli.help_gen": "Private help-generation implementation."
+  }
+}

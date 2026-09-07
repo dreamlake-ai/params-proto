@@ -1,0 +1,1 @@
+dreamlake-autodoc-py @ git+https://github.com/dreamlake-ai/autodoc-py.git@84c0f8a

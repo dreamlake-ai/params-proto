@@ -1,0 +1,280 @@
+---
+title: "Environment & fields"
+section: "API reference"
+order: 311
+description: "Read typed environment values and define computed fields. `EnvVar` is a public callable singleton, not a class you need to import from an implementation module."
+tocLevel: 3
+---
+
+# Environment & fields
+
+Read typed environment values and define computed fields. `EnvVar` is a public callable singleton, not a class you need to import from an implementation module.
+
+```python
+from params_proto import proto, EnvVar, Field
+
+@proto
+class Config:
+    port: int = EnvVar @ "PORT" | 8080
+```
+
+Environment values resolve lazily when accessed. See the [environment guide](/key_concepts/environment_variables) for template expansion and defaults. `parse_env_template` and `all_available` are lower-level template helpers.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`get_var`](/reference/environment#params_proto.envvar--get_var) | function | `params_proto.envvar` |
+| [`Field`](/reference/environment#params_proto.envvar--field) | function | `params_proto.envvar` |
+| [`EnvVar`](/reference/environment#params_proto.envvar--envvar) | singleton | `params_proto.envvar` |
+| [`parse_env_template`](/reference/environment#params_proto.parse_env_template--parse_env_template) | function | `params_proto.parse_env_template` |
+| [`all_available`](/reference/environment#params_proto.parse_env_template--all_available) | function | `params_proto.parse_env_template` |
+
+<a id="params_proto.envvar" />
+
+## params_proto.envvar
+
+Environment variable support for params-proto.
+
+Provides EnvVar class for reading configuration from environment variables
+with automatic type conversion and template expansion.
+
+<a id="params_proto.envvar--get_var" />
+
+### `get_var`
+
+```python
+def get_var(default: Any=None, *, env: str=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L233)
+
+Mark a field as an environment variable.
+
+**Args**
+
+- `default`: Default value if env var not set
+- `env`: Environment variable name (defaults to field name)
+
+<a id="params_proto.envvar--field" />
+
+### `Field`
+
+```python
+def Field(fn: Callable)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L249)
+
+Decorator to mark a method as a computed field.
+
+**Args**
+
+- `fn`: The method to decorate
+
+**Returns**
+
+The decorated method
+
+<a id="params_proto.envvar--envvar" />
+
+### `EnvVar`
+
+```python
+EnvVar = _EnvVar()
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L230)
+
+Environment variable reader that supports three syntaxes:
+
+1. Matmul operator with env var name:
+    batch_size: int = EnvVar @ "BATCH_SIZE"
+
+2. Matmul operator with pipe for default:
+    learning_rate: float = EnvVar @ "LR" | 0.001
+
+3. Function call syntax:
+    db_url: str = EnvVar("DATABASE_URL", default="localhost")
+    data_dir: str = EnvVar("$DATA_DIR/models", default="/tmp/models")
+
+4. OR operation with multiple env var names (tries each in order):
+    api_key: str = EnvVar @ "API_KEY" @ "SECRET_KEY" | "default"
+    # Or function syntax:
+    api_key: str = EnvVar("API_KEY", "SECRET_KEY", default="default")
+
+The pipe operator (|) allows clean chaining of env var name with fallback value.
+Values are loaded lazily - environment variables are read at access time, not definition time.
+
+<a id="params_proto.envvar--envvar.__init__" />
+
+#### `EnvVar.__init__`
+
+```python
+def __init__(self, *templates: str, default: Any=None, dtype: type=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L37)
+
+Create an environment variable reader.
+
+**Args**
+
+- `*templates`: One or more environment variable names or template strings.
+  When multiple are provided, they are checked in order (OR operation).
+- `default`: Default value if no environment variable is set
+- `dtype`: Optional type to convert the value to (overrides annotation inference)
+
+<a id="params_proto.envvar--envvar.template" />
+
+#### `EnvVar.template`
+
+```python
+def template(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L57)
+
+Backward compatibility: return first template or None.
+
+<a id="params_proto.envvar--envvar.__matmul__" />
+
+#### `EnvVar.__matmul__`
+
+```python
+def __matmul__(self, other: Any)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L61)
+
+Support EnvVar @ "VAR_NAME" syntax, chainable for OR operation.
+
+**Examples**
+
+```python
+EnvVar @ "VAR_NAME"              # Single env var
+EnvVar @ "VAR1" @ "VAR2"         # OR: try VAR1, then VAR2
+EnvVar @ "VAR1" @ "VAR2" | default  # With fallback
+```
+
+Note: The | operator has lower precedence than @, so
+`EnvVar @ "A" @ "B" | default` is parsed as `(EnvVar @ "A" @ "B") | default`.
+
+**Args**
+
+- `other`: Either an environment variable name (str) or a default value
+
+**Returns**
+
+New _EnvVar instance configured with the given parameter
+
+<a id="params_proto.envvar--envvar.__or__" />
+
+#### `EnvVar.__or__`
+
+```python
+def __or__(self, other: Any)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L86)
+
+Support chaining with | to specify default value.
+
+Syntax: EnvVar @ "VAR_NAME" | default_value
+
+Note: Using `or` instead of `|` will NOT work because `or` has lower
+precedence than @ and evaluates truthiness instead of calling __or__.
+
+**Args**
+
+- `other`: Default value to use if env var is not set
+
+**Returns**
+
+New _EnvVar instance with both template(s) and default
+
+<a id="params_proto.envvar--envvar.__call__" />
+
+#### `EnvVar.__call__`
+
+```python
+def __call__(self, *templates: str, default: Any=None, dtype: type=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L103)
+
+Support EnvVar("VAR_NAME", ..., default=...) function call syntax.
+
+**Examples**
+
+```python
+EnvVar("DATABASE_URL", default="localhost")
+EnvVar("API_KEY", "SECRET_KEY", default="fallback")  # OR operation
+EnvVar("PORT", dtype=int, default=8080)  # With type conversion
+```
+
+**Args**
+
+- `*templates`: One or more environment variable names or template strings
+- `default`: Default value if no environment variable is set
+- `dtype`: Optional type to convert the value to
+
+**Returns**
+
+New _EnvVar instance configured with the given parameters
+
+<a id="params_proto.envvar--envvar.invalidate_cache" />
+
+#### `EnvVar.invalidate_cache`
+
+```python
+def invalidate_cache(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/envvar.py#L156)
+
+Clear the cached value, forcing re-read from environment on next access.
+
+<a id="params_proto.envvar--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`parse_env_template`](/reference/environment#params_proto.parse_env_template--parse_env_template) — `params_proto.parse_env_template.parse_env_template`
+<a id="params_proto.parse_env_template" />
+
+## params_proto.parse_env_template
+
+<a id="params_proto.parse_env_template--parse_env_template" />
+
+### `parse_env_template`
+
+```python
+def parse_env_template(template: str) -> List[str]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L5)
+
+Extract and return the environment variable names from a given string template.
+
+:param template: A string template that potentially contains environment variables
+                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
+:return: A list of environment variable names found in the template.
+
+<a id="params_proto.parse_env_template--all_available" />
+
+### `all_available`
+
+```python
+def all_available(template: str, strict=True) -> bool
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/parse_env_template.py#L19)
+
+Check if all environment variables in the template are available in the current environment.
+
+:param template: A string template that potentially contains environment variables
+                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
+:param strict: If True, treat empty environment variables as undefined. Otherwise, treat them as defined.
+:return: True if all environment variables are available, False otherwise.

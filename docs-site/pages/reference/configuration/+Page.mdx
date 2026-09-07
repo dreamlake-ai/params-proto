@@ -1,0 +1,311 @@
+---
+title: "Configuration"
+section: "API reference"
+order: 310
+description: "Declare parameters on a class or function, expose them as a CLI, and apply overrides without threading configuration through every call."
+tocLevel: 3
+---
+
+# Configuration
+
+Declare parameters on a class or function, expose them as a CLI, and apply overrides without threading configuration through every call.
+
+```python
+from params_proto import proto
+
+@proto
+class Config:
+    learning_rate: float = 0.001
+    batch_size: int = 32
+
+with proto.bind(learning_rate=0.01):
+    print(Config.learning_rate)
+```
+
+| Public entry point | Definition |
+| --- | --- |
+| `@proto` | [proto](#params_proto.proto--proto) |
+| `@proto.cli` | [cli](#params_proto.proto--cli) |
+| `@proto.prefix` | [prefix_decorator](#params_proto.proto--prefix_decorator) |
+| `proto.bind` | [bind](#params_proto.proto--bind) |
+| `proto.parse` | [parse](#params_proto.proto--parse) |
+| `proto.partial` | [partial](#params_proto.proto--partial) |
+
+`proto` exposes these helpers as attributes. The names below are their definitions in source. For decorator order and examples, see [configuration patterns](/key_concepts/configuration-patterns) and [CLI applications](/examples/cli_applications).
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`ProtoResult`](/reference/configuration#params_proto.proto--protoresult) | class | `params_proto.proto` |
+| [`ProtoWrapper`](/reference/configuration#params_proto.proto--protowrapper) | class | `params_proto.proto` |
+| [`ptype`](/reference/configuration#params_proto.proto--ptype) | class | `params_proto.proto` |
+| [`proto`](/reference/configuration#params_proto.proto--proto) | function | `params_proto.proto` |
+| [`cli_decorator`](/reference/configuration#params_proto.proto--cli_decorator) | function | `params_proto.proto` |
+| [`prefix_decorator`](/reference/configuration#params_proto.proto--prefix_decorator) | function | `params_proto.proto` |
+| [`BindContext`](/reference/configuration#params_proto.proto--bindcontext) | class | `params_proto.proto` |
+| [`bind`](/reference/configuration#params_proto.proto--bind) | function | `params_proto.proto` |
+| [`parse`](/reference/configuration#params_proto.proto--parse) | function | `params_proto.proto` |
+| [`cli`](/reference/configuration#params_proto.proto--cli) | function | `params_proto.proto` |
+| [`partial`](/reference/configuration#params_proto.proto--partial) | function | `params_proto.proto` |
+
+<a id="params_proto.proto" />
+
+## params_proto.proto
+
+params-proto v3 API
+
+Core decorators and functionality for declarative parameter management.
+
+<a id="params_proto.proto--protoresult" />
+
+### `ProtoResult`
+
+```python
+class ProtoResult
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L66)
+
+Result object that provides attribute access to function results.
+
+<a id="params_proto.proto--protoresult.__init__" />
+
+#### `ProtoResult.__init__`
+
+```python
+def __init__(self, data: dict)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L69)
+
+<a id="params_proto.proto--protowrapper" />
+
+### `ProtoWrapper`
+
+```python
+class ProtoWrapper
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L101)
+
+Wrapper for proto-decorated functions.
+
+<a id="params_proto.proto--protowrapper.__init__" />
+
+#### `ProtoWrapper.__init__`
+
+```python
+def __init__(self, func: Callable, is_cli: bool=False, is_prefix: bool=False, prog: str=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L104)
+
+<a id="params_proto.proto--ptype" />
+
+### `ptype`
+
+```python
+class ptype(type)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L499)
+
+Metaclass for proto-decorated classes that intercepts attribute access.
+
+<a id="params_proto.proto--proto" />
+
+### `proto`
+
+```python
+def proto(cls_or_func: Callable=None, *, cli: bool=False, prefix: bool=False, prefix_name: str=None, prog: str=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L703)
+
+Main proto decorator that converts a class or function into a proto config object.
+
+**Args**
+
+- `cls_or_func`: The class or function to decorate
+- `cli`: If True, this is a CLI entry point (generates help)
+- `prefix`: If True, creates a singleton instance with prefix in CLI
+- `prefix_name`: Custom prefix name (defaults to lowercase class/function name)
+- `prog`: Optional program name override for help generation (useful for testing)
+
+**Returns**
+
+Decorated class/function with attribute setting and calling support
+
+<a id="params_proto.proto--cli_decorator" />
+
+### `cli_decorator`
+
+```python
+def cli_decorator(cls_or_func)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L886)
+
+Decorator for CLI entry points.
+
+<a id="params_proto.proto--prefix_decorator" />
+
+### `prefix_decorator`
+
+```python
+def prefix_decorator(cls_or_func=None, name: str=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L891)
+
+Decorator for prefixed singleton configs.
+
+**Args**
+
+- `cls_or_func`: The class or function to decorate (or prefix name if called with string)
+- `name`: Optional custom prefix name (defaults to lowercase class/function name)
+
+**Examples**
+
+```python
+@proto.prefix
+class Config: ...
+
+@proto.prefix("custom")
+class Config: ...
+```
+
+<a id="params_proto.proto--bindcontext" />
+
+### `BindContext`
+
+```python
+class BindContext
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L923)
+
+Context manager for parameter bindings that also works as a direct call.
+
+<a id="params_proto.proto--bindcontext.__init__" />
+
+#### `BindContext.__init__`
+
+```python
+def __init__(self, prev_state, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L926)
+
+<a id="params_proto.proto--bind" />
+
+### `bind`
+
+```python
+def bind(**kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L940)
+
+Bind parameter overrides.
+
+Can be used as context manager:
+    with proto.bind(seed=42, **&#123;"train.lr": 0.01&#125;):
+        result = main()
+
+Or as direct call (sets global bindings):
+    proto.bind(seed=42, **&#123;"train.lr": 0.01&#125;)
+    result = main()
+
+<a id="params_proto.proto--parse" />
+
+### `parse`
+
+```python
+def parse(func: Callable, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L963)
+
+Parse overrides and call a function.
+
+**Args**
+
+- `func`: The function to call
+- `**kwargs`: Override values (can use dot notation)
+
+**Returns**
+
+Result of calling func with overrides applied
+
+<a id="params_proto.proto--cli" />
+
+### `cli`
+
+```python
+def cli(obj: Any=None, *, prog: str=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L993)
+
+Set up an object as a CLI entry point.
+
+By default, subcommand attributes don't require prefix (--epochs works).
+If the subcommand class is decorated with @proto.prefix, prefix is required
+(--config.epochs).
+
+**Args**
+
+- `obj`: The class, function, or Union type to setup as CLI.
+  If None, returns a decorator.
+- `prog`: Optional program name override for help generation (useful for testing)
+
+**Returns**
+
+The object with CLI capabilities, or a decorator if obj is None
+
+<a id="params_proto.proto--partial" />
+
+### `partial`
+
+```python
+def partial(config_class: Type, method: bool=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/proto.py#L1026)
+
+Decorator that injects parameter defaults from a config class into a function.
+
+This allows you to define a plain class with type-annotated attributes and their
+defaults, then use those defaults to populate function parameters automatically.
+
+**Args**
+
+- `config_class`: A class with type-annotated attributes serving as parameter defaults
+- `method`: If True, wraps as a method (for class methods)
+
+**Example**
+
+```python
+class Config:
+  lr: float = 0.01
+  batch_size: int = 32
+
+@proto.partial(Config)
+def train() -> None:
+  print(f"Learning Rate: {Config.lr}")
+  print(f"Batch Size: {Config.batch_size}")
+
+# Supports direct attribute modification:
+Config.lr = 0.001
+train()  # Uses updated lr value
+
+# Supports hyperparameter sweeps:
+for Config.lr in [0.01, 0.001, 0.0001]:
+  train()
+```
+
+**Returns**
+
+Decorated function with config values injected as defaults

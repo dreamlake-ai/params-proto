@@ -1,0 +1,1247 @@
+---
+title: "Compatibility"
+section: "API reference"
+order: 314
+description: "These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation."
+tocLevel: 3
+---
+
+# Compatibility
+
+These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation.
+
+```python
+from params_proto.v2 import ParamsProto, Proto, PrefixProto
+```
+
+Use [migration](/migration) when upgrading. Module headings below distinguish v1 from v2 definitions, including classes with the same name.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`dot_join`](/reference/compatibility#params_proto.v1.hyper--dot_join) | function | `params_proto.v1.hyper` |
+| [`key_items`](/reference/compatibility#params_proto.v1.hyper--key_items) | function | `params_proto.v1.hyper` |
+| [`ProxyObject`](/reference/compatibility#params_proto.v1.hyper--proxyobject) | class | `params_proto.v1.hyper` |
+| [`flatten_items`](/reference/compatibility#params_proto.v1.hyper--flatten_items) | function | `params_proto.v1.hyper` |
+| [`Sweep`](/reference/compatibility#params_proto.v1.hyper--sweep) | class | `params_proto.v1.hyper` |
+| [`sweep`](/reference/compatibility#params_proto.v1.hyper--sweep) | singleton | `params_proto.v1.hyper` |
+| [`is_hidden`](/reference/compatibility#params_proto.v1.params_proto--is_hidden) | function | `params_proto.v1.params_proto` |
+| [`ParamsProto`](/reference/compatibility#params_proto.v1.params_proto--paramsproto) | class | `params_proto.v1.params_proto` |
+| [`Proto`](/reference/compatibility#params_proto.v1.params_proto--proto) | function | `params_proto.v1.params_proto` |
+| [`BoolFlag`](/reference/compatibility#params_proto.v1.params_proto--boolflag) | function | `params_proto.v1.params_proto` |
+| [`prefix_proto`](/reference/compatibility#params_proto.v1.params_proto--prefix_proto) | function | `params_proto.v1.params_proto` |
+| [`cli_parse`](/reference/compatibility#params_proto.v1.params_proto--cli_parse) | function | `params_proto.v1.params_proto` |
+| [`proto_signature`](/reference/compatibility#params_proto.v1.params_proto--proto_signature) | function | `params_proto.v1.params_proto` |
+| [`proto_partial`](/reference/compatibility#params_proto.v1.params_proto--proto_partial) | function | `params_proto.v1.params_proto` |
+| [`dot_join`](/reference/compatibility#params_proto.v2.hyper--dot_join) | function | `params_proto.v2.hyper` |
+| [`key_items`](/reference/compatibility#params_proto.v2.hyper--key_items) | function | `params_proto.v2.hyper` |
+| [`flatten_items`](/reference/compatibility#params_proto.v2.hyper--flatten_items) | function | `params_proto.v2.hyper` |
+| [`Sweep`](/reference/compatibility#params_proto.v2.hyper--sweep) | class | `params_proto.v2.hyper` |
+| [`proto_partial`](/reference/compatibility#params_proto.v2.partial--proto_partial) | function | `params_proto.v2.partial` |
+| [`Proto`](/reference/compatibility#params_proto.v2.proto--proto) | class | `params_proto.v2.proto` |
+| [`Flag`](/reference/compatibility#params_proto.v2.proto--flag) | class | `params_proto.v2.proto` |
+| [`Accumulant`](/reference/compatibility#params_proto.v2.proto--accumulant) | class | `params_proto.v2.proto` |
+| [`StrType`](/reference/compatibility#params_proto.v2.proto--strtype) | class | `params_proto.v2.proto` |
+| [`Eval`](/reference/compatibility#params_proto.v2.proto--eval) | class | `params_proto.v2.proto` |
+| [`is_private`](/reference/compatibility#params_proto.v2.proto--is_private) | function | `params_proto.v2.proto` |
+| [`get_children`](/reference/compatibility#params_proto.v2.proto--get_children) | function | `params_proto.v2.proto` |
+| [`Meta`](/reference/compatibility#params_proto.v2.proto--meta) | class | `params_proto.v2.proto` |
+| [`ArgFactory`](/reference/compatibility#params_proto.v2.proto--argfactory) | class | `params_proto.v2.proto` |
+| [`ParamsProto`](/reference/compatibility#params_proto.v2.proto--paramsproto) | class | `params_proto.v2.proto` |
+| [`find_ancestors`](/reference/compatibility#params_proto.v2.proto--find_ancestors) | function | `params_proto.v2.proto` |
+| [`PrefixProto`](/reference/compatibility#params_proto.v2.proto--prefixproto) | class | `params_proto.v2.proto` |
+| [`is_subclass`](/reference/compatibility#params_proto.v2.proto--is_subclass) | function | `params_proto.v2.proto` |
+| [`is_base_class`](/reference/compatibility#params_proto.v2.proto--is_base_class) | function | `params_proto.v2.proto` |
+| [`update`](/reference/compatibility#params_proto.v2.proto--update) | function | `params_proto.v2.proto` |
+| [`ARGS`](/reference/compatibility#params_proto.v2.proto--args) | singleton | `params_proto.v2.proto` |
+| [`clean_ansi`](/reference/compatibility#params_proto.v2.utils--clean_ansi) | function | `params_proto.v2.utils` |
+| [`dot_to_deps`](/reference/compatibility#params_proto.v2.utils--dot_to_deps) | function | `params_proto.v2.utils` |
+| [`read_deps`](/reference/compatibility#params_proto.v2.utils--read_deps) | function | `params_proto.v2.utils` |
+| [`flatten`](/reference/compatibility#params_proto.v2.utils--flatten) | function | `params_proto.v2.utils` |
+
+<a id="params_proto.v1" />
+
+## params_proto.v1
+
+<a id="params_proto.v1--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`is_hidden`](/reference/compatibility#params_proto.v1.params_proto--is_hidden) — `params_proto.v1.params_proto.is_hidden`
+- [`ParamsProto`](/reference/compatibility#params_proto.v1.params_proto--paramsproto) — `params_proto.v1.params_proto.ParamsProto`
+- [`Proto`](/reference/compatibility#params_proto.v1.params_proto--proto) — `params_proto.v1.params_proto.Proto`
+- [`BoolFlag`](/reference/compatibility#params_proto.v1.params_proto--boolflag) — `params_proto.v1.params_proto.BoolFlag`
+- [`prefix_proto`](/reference/compatibility#params_proto.v1.params_proto--prefix_proto) — `params_proto.v1.params_proto.prefix_proto`
+- [`cli_parse`](/reference/compatibility#params_proto.v1.params_proto--cli_parse) — `params_proto.v1.params_proto.cli_parse`
+- [`proto_signature`](/reference/compatibility#params_proto.v1.params_proto--proto_signature) — `params_proto.v1.params_proto.proto_signature`
+- [`proto_partial`](/reference/compatibility#params_proto.v1.params_proto--proto_partial) — `params_proto.v1.params_proto.proto_partial`
+<a id="params_proto.v1.hyper" />
+
+## params_proto.v1.hyper
+
+<a id="params_proto.v1.hyper--dot_join" />
+
+### `dot_join`
+
+```python
+def dot_join(*keys)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L9)
+
+remove Nones from the keys, but not '',
+
+<a id="params_proto.v1.hyper--key_items" />
+
+### `key_items`
+
+```python
+def key_items(d, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L20)
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]]
+returns wtf
+
+<a id="params_proto.v1.hyper--proxyobject" />
+
+### `ProxyObject`
+
+```python
+class ProxyObject(object)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L31)
+
+<a id="params_proto.v1.hyper--proxyobject.__init__" />
+
+#### `ProxyObject.__init__`
+
+```python
+def __init__(self, hook, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L32)
+
+<a id="params_proto.v1.hyper--flatten_items" />
+
+### `flatten_items`
+
+```python
+def flatten_items(row) -> Iterable[Item]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L53)
+
+<a id="params_proto.v1.hyper--sweep" />
+
+### `Sweep`
+
+```python
+class Sweep
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L66)
+
+<a id="params_proto.v1.hyper--sweep.__init__" />
+
+#### `Sweep.__init__`
+
+```python
+def __init__(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L67)
+
+<a id="params_proto.v1.hyper--sweep.set_param" />
+
+#### `Sweep.set_param`
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L78)
+
+<a id="params_proto.v1.hyper--sweep.product" />
+
+#### `Sweep.product`
+
+```python
+def product(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L83)
+
+<a id="params_proto.v1.hyper--sweep.zip" />
+
+#### `Sweep.zip`
+
+```python
+def zip(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L94)
+
+<a id="params_proto.v1.hyper--sweep.set" />
+
+#### `Sweep.set`
+
+```python
+def set(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L105)
+
+<a id="params_proto.v1.hyper--sweep-1" />
+
+### `sweep`
+
+```python
+sweep = Sweep()
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L117)
+
+<a id="params_proto.v1.hyper--sweep.__init__-1" />
+
+#### `sweep.__init__`
+
+```python
+def __init__(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L67)
+
+<a id="params_proto.v1.hyper--sweep.set_param-1" />
+
+#### `sweep.set_param`
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L78)
+
+<a id="params_proto.v1.hyper--sweep.product-1" />
+
+#### `sweep.product`
+
+```python
+def product(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L83)
+
+<a id="params_proto.v1.hyper--sweep.zip-1" />
+
+#### `sweep.zip`
+
+```python
+def zip(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L94)
+
+<a id="params_proto.v1.hyper--sweep.set-1" />
+
+#### `sweep.set`
+
+```python
+def set(self, Strut: T) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/hyper.py#L105)
+
+<a id="params_proto.v1.hyper--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`is_private`](/reference/compatibility#params_proto.v2.proto--is_private) — `params_proto.v2.proto.is_private`
+<a id="params_proto.v1.params_proto" />
+
+## params_proto.v1.params_proto
+
+<a id="params_proto.v1.params_proto--is_hidden" />
+
+### `is_hidden`
+
+```python
+def is_hidden(k: str) -> bool
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L43)
+
+return True is method is hidden
+
+<a id="params_proto.v1.params_proto--paramsproto" />
+
+### `ParamsProto`
+
+```python
+class ParamsProto(DefaultBear)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L100)
+
+Parameter ptype Class, has toDict method and __proto__ attribute for the original namespace object.
+
+<a id="params_proto.v1.params_proto--paramsproto.__init__" />
+
+#### `ParamsProto.__init__`
+
+```python
+def __init__(self, proto, **d)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L103)
+
+<a id="params_proto.v1.params_proto--proto" />
+
+### `Proto`
+
+```python
+def Proto(default: T, help=None, dtype=None, aliases=None, **kwargs) -> T
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L139)
+
+<a id="params_proto.v1.params_proto--boolflag" />
+
+### `BoolFlag`
+
+```python
+def BoolFlag(default: bool, help=None, aliases=None, **kwargs) -> T
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L145)
+
+this one generates a boolean flag that requires no arguments.
+
+The value of the flag is the opposite of the default.
+if default is True, then --bool-flag (such as --no-flag) would return False.
+if default is False, then (such as --render) would return True.
+
+<a id="params_proto.v1.params_proto--prefix_proto" />
+
+### `prefix_proto`
+
+```python
+def prefix_proto(prefix_or_fn: Union[str, None, Callable]=None, parse=False, **ext)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L162)
+
+<a id="params_proto.v1.params_proto--cli_parse" />
+
+### `cli_parse`
+
+```python
+def cli_parse(proto: T) -> T
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L225)
+
+parser command line options, and repackage into a typed object.
+
+:param proto: T
+
+<a id="params_proto.v1.params_proto--proto_signature" />
+
+### `proto_signature`
+
+```python
+def proto_signature(parameter_prototype, need_self=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L329)
+
+<a id="params_proto.v1.params_proto--proto_partial" />
+
+### `proto_partial`
+
+```python
+def proto_partial(proto, method=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L356)
+
+Overrides the function with values from the Proto Object.
+<a id="params_proto.v2" />
+
+## params_proto.v2
+
+<a id="params_proto.v2--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`all_available`](/reference/environment#params_proto.parse_env_template--all_available) — `params_proto.parse_env_template.all_available`
+- [`dot_to_deps`](/reference/compatibility#params_proto.v2.utils--dot_to_deps) — `params_proto.v2.utils.dot_to_deps`
+- [`Proto`](/reference/compatibility#params_proto.v2.proto--proto) — `params_proto.v2.proto.Proto`
+- [`Flag`](/reference/compatibility#params_proto.v2.proto--flag) — `params_proto.v2.proto.Flag`
+- [`Accumulant`](/reference/compatibility#params_proto.v2.proto--accumulant) — `params_proto.v2.proto.Accumulant`
+- [`StrType`](/reference/compatibility#params_proto.v2.proto--strtype) — `params_proto.v2.proto.StrType`
+- [`Eval`](/reference/compatibility#params_proto.v2.proto--eval) — `params_proto.v2.proto.Eval`
+- [`is_private`](/reference/compatibility#params_proto.v2.proto--is_private) — `params_proto.v2.proto.is_private`
+- [`get_children`](/reference/compatibility#params_proto.v2.proto--get_children) — `params_proto.v2.proto.get_children`
+- [`Meta`](/reference/compatibility#params_proto.v2.proto--meta) — `params_proto.v2.proto.Meta`
+- [`ArgFactory`](/reference/compatibility#params_proto.v2.proto--argfactory) — `params_proto.v2.proto.ArgFactory`
+- [`ParamsProto`](/reference/compatibility#params_proto.v2.proto--paramsproto) — `params_proto.v2.proto.ParamsProto`
+- [`find_ancestors`](/reference/compatibility#params_proto.v2.proto--find_ancestors) — `params_proto.v2.proto.find_ancestors`
+- [`PrefixProto`](/reference/compatibility#params_proto.v2.proto--prefixproto) — `params_proto.v2.proto.PrefixProto`
+- [`is_subclass`](/reference/compatibility#params_proto.v2.proto--is_subclass) — `params_proto.v2.proto.is_subclass`
+- [`is_base_class`](/reference/compatibility#params_proto.v2.proto--is_base_class) — `params_proto.v2.proto.is_base_class`
+- [`update`](/reference/compatibility#params_proto.v2.proto--update) — `params_proto.v2.proto.update`
+- [`ARGS`](/reference/compatibility#params_proto.v2.proto--args) — `params_proto.v2.proto.ARGS`
+- [`read_deps`](/reference/compatibility#params_proto.v2.utils--read_deps) — `params_proto.v2.utils.read_deps`
+<a id="params_proto.v2.hyper" />
+
+## params_proto.v2.hyper
+
+<a id="params_proto.v2.hyper--dot_join" />
+
+### `dot_join`
+
+```python
+def dot_join(*keys)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L9)
+
+remove Nones from the keys, but not '',
+
+<a id="params_proto.v2.hyper--key_items" />
+
+### `key_items`
+
+```python
+def key_items(d, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L20)
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]]
+returns wtf
+
+<a id="params_proto.v2.hyper--flatten_items" />
+
+### `flatten_items`
+
+```python
+def flatten_items(row) -> Iterable[Item]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L30)
+
+<a id="params_proto.v2.hyper--sweep" />
+
+### `Sweep`
+
+```python
+class Sweep
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L43)
+
+<a id="params_proto.v2.hyper--sweep.each" />
+
+#### `Sweep.each`
+
+```python
+def each(self, fn)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L50)
+
+<a id="params_proto.v2.hyper--sweep.__init__" />
+
+#### `Sweep.__init__`
+
+```python
+def __init__(self, *protos: Meta)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L55)
+
+<a id="params_proto.v2.hyper--sweep.items" />
+
+#### `Sweep.items`
+
+```python
+def items(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L105)
+
+<a id="params_proto.v2.hyper--sweep.list" />
+
+#### `Sweep.list`
+
+```python
+def list(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L109)
+
+returns self as a list. Currently not idempotent. Might become idempotent in the future.
+
+<a id="params_proto.v2.hyper--sweep.dataframe" />
+
+#### `Sweep.dataframe`
+
+```python
+def dataframe(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L114)
+
+<a id="params_proto.v2.hyper--sweep.noot" />
+
+#### `Sweep.noot`
+
+```python
+def noot(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L130)
+
+<a id="params_proto.v2.hyper--sweep.snack" />
+
+#### `Sweep.snack`
+
+```python
+def snack(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L136)
+
+<a id="params_proto.v2.hyper--sweep.original" />
+
+#### `Sweep.original`
+
+```python
+def original(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L170)
+
+<a id="params_proto.v2.hyper--sweep.set_param" />
+
+#### `Sweep.set_param`
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L201)
+
+<a id="params_proto.v2.hyper--sweep.product" />
+
+#### `Sweep.product`
+
+```python
+def product(self) -> ContextManager[None]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L207)
+
+<a id="params_proto.v2.hyper--sweep.zip" />
+
+#### `Sweep.zip`
+
+```python
+def zip(self) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L224)
+
+<a id="params_proto.v2.hyper--sweep.set" />
+
+#### `Sweep.set`
+
+```python
+def set(self) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L241)
+
+<a id="params_proto.v2.hyper--sweep.chain" />
+
+#### `Sweep.chain`
+
+```python
+def chain(self) -> ContextManager[T]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L249)
+
+<a id="params_proto.v2.hyper--sweep.save" />
+
+#### `Sweep.save`
+
+```python
+def save(self, filename='sweep.jsonl', overwrite=True, verbose=True)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L264)
+
+<a id="params_proto.v2.hyper--sweep.log" />
+
+#### `Sweep.log`
+
+```python
+def log(deps, filename)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L289)
+
+append deps object to a JSONL log file, used as a helper function
+
+<a id="params_proto.v2.hyper--sweep.read" />
+
+#### `Sweep.read`
+
+```python
+def read(filename)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L297)
+
+Read JSONL log files, used as a helper function
+
+<a id="params_proto.v2.hyper--sweep.load" />
+
+#### `Sweep.load`
+
+```python
+def load(self, file='sweep.jsonl', strict=True, silent=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L312)
+
+Loading sweep state from a jsonl file:
+
+Note: **Important Caveat** When multiple prefix-free ParamsProto objects are present,
+    We sweep through all of the proto objects and sets the attribute to the first
+    proto with the correct key. This first-attr approach works because the ParamsProto
+    object also generates argparse parameters, which means repetitive arguments are
+    not possible.
+
+    However this would fail in cases where attributes are dynamically added to an
+    argument object. The `sweep.jsonl` file loses this type of information, therefore
+    there is no way to recover this type of attributes. So the user should try to
+    either use PrefixProto, or explicitly define the attributes.
+
+Usage Pattern 1: Loading from a file::
+
+    sweep = Sweep(Args, RUN).load('sweep.jsonl')
+    for i, deps in enumerate(sweep):
+        assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+
+Usage Pattern 2: Loading from a sweep list object or a pandas DataFrame::
+
+    sweep_list = Sweep.read(sweep.jsonl)
+    sweep = Sweep(Args, RUN).load(sweep_list)
+    for i, deps in enumerate(sweep):
+        assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+
+```python
+file = None
+```
+
+<a id="params_proto.v2.hyper--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`Meta`](/reference/compatibility#params_proto.v2.proto--meta) — `params_proto.v2.proto.Meta`
+- [`ParamsProto`](/reference/compatibility#params_proto.v2.proto--paramsproto) — `params_proto.v2.proto.ParamsProto`
+- [`Proto`](/reference/compatibility#params_proto.v2.proto--proto) — `params_proto.v2.proto.Proto`
+<a id="params_proto.v2.partial" />
+
+## params_proto.v2.partial
+
+<a id="params_proto.v2.partial--proto_partial" />
+
+### `proto_partial`
+
+```python
+def proto_partial(proto: ParamsProto, method=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/partial.py#L7)
+
+Overrides the function with values from the Proto Object.
+
+<a id="params_proto.v2.partial--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ParamsProto`](/reference/compatibility#params_proto.v2.proto--paramsproto) — `params_proto.v2.proto.ParamsProto`
+<a id="params_proto.v2.proto" />
+
+## params_proto.v2.proto
+
+<a id="params_proto.v2.proto--proto" />
+
+### `Proto`
+
+```python
+class Proto(SimpleNamespace)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L23)
+
+<a id="params_proto.v2.proto--proto.__init__" />
+
+#### `Proto.__init__`
+
+```python
+def __init__(self, default=None, help=None, dtype=None, metavar='\x08', env=None, strict_parsing=False, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L29)
+
+The proto object. The env attribute allows one to set the environment variable
+from which this proto reads value from.
+
+:param default:
+:param help:
+:param dtype:
+:param metavar:
+:param env: the environment variable for the default value -- in the next version could be set
+     automatically from the prefix of the class.
+:param strict_parsing: default to False, when true raises error for env var that are not set.
+      this is passed onto the expandvars function as nounset.
+:param kwargs:
+
+<a id="params_proto.v2.proto--proto.value" />
+
+#### `Proto.value`
+
+```python
+def value(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L90)
+
+<a id="params_proto.v2.proto--proto.value-1" />
+
+#### `Proto.value`
+
+```python
+def value(self, value)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L94)
+
+```python
+default = None
+```
+
+```python
+help = None
+```
+
+```python
+dtype = None
+```
+
+<a id="params_proto.v2.proto--flag" />
+
+### `Flag`
+
+```python
+class Flag(Proto)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L102)
+
+<a id="params_proto.v2.proto--flag.__init__" />
+
+#### `Flag.__init__`
+
+```python
+def __init__(self, help=None, to_value=True, default=None, dtype=None, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L103)
+
+<a id="params_proto.v2.proto--inherited-members" />
+
+#### Inherited members
+
+- `default` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `help` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `dtype` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `value` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+
+<a id="params_proto.v2.proto--accumulant" />
+
+### `Accumulant`
+
+```python
+class Accumulant(Proto)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L116)
+
+used by neo_hyper to avoid reset.
+
+<a id="params_proto.v2.proto--accumulant.__init__" />
+
+#### `Accumulant.__init__`
+
+```python
+def __init__(self, *args, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L121)
+
+<a id="params_proto.v2.proto--inherited-members-1" />
+
+#### Inherited members
+
+- `default` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `help` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `dtype` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `value` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+
+```python
+accumulant = True
+```
+
+<a id="params_proto.v2.proto--strtype" />
+
+### `StrType`
+
+```python
+class StrType(type)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L125)
+
+```python
+thunk = None
+```
+
+```python
+help = None
+```
+
+<a id="params_proto.v2.proto--eval" />
+
+### `Eval`
+
+```python
+class Eval(Proto, metaclass=StrType)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L133)
+
+<a id="params_proto.v2.proto--eval.__init__" />
+
+#### `Eval.__init__`
+
+```python
+def __init__(self, default, help=None, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L136)
+
+<a id="params_proto.v2.proto--inherited-members-2" />
+
+#### Inherited members
+
+- `default` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `help` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `dtype` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+- `value` — from [`params_proto.v2.proto.Proto`](/reference/compatibility#params_proto.v2.proto--proto)
+
+```python
+thunk = None
+```
+
+<a id="params_proto.v2.proto--is_private" />
+
+### `is_private`
+
+```python
+def is_private(k: str) -> bool
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L143)
+
+Filter Private Attributes.
+
+**Args**
+
+- `k`: &lt;str&gt; the key to be tested.
+
+Returns True if key equals "_prefix", or starts with "__" or "_&lt;ParentClass&gt;_"
+
+<a id="params_proto.v2.proto--get_children" />
+
+### `get_children`
+
+```python
+def get_children(__init__)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L161)
+
+decorator to parse the dependencies into current scope,
+using the cls._prefix attribute of the namespace.
+
+Allows one to use _prefix to override to original class._prefix
+
+<a id="params_proto.v2.proto--meta" />
+
+### `Meta`
+
+```python
+class Meta(type)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L178)
+
+<a id="params_proto.v2.proto--meta.__init__" />
+
+#### `Meta.__init__`
+
+```python
+def __init__(cls, name, bases, namespace, cli=True, cli_parse=True, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L181)
+
+<a id="params_proto.v2.proto--argfactory" />
+
+### `ArgFactory`
+
+```python
+class ArgFactory
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L410)
+
+The reason we do not inherit from argparse, is because the
+argument group returns new instances, so unless we patch those
+classes as well, we will not be able to intercept these calls.
+(I tried that first.)
+
+For this reason we implement this as a funciton, with a stateful
+context.
+
+<a id="params_proto.v2.proto--argfactory.__init__" />
+
+#### `ArgFactory.__init__`
+
+```python
+def __init__(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L422)
+
+<a id="params_proto.v2.proto--argfactory.add_argument" />
+
+#### `ArgFactory.add_argument`
+
+```python
+def add_argument(self, proto, key, *name_or_flags, _argument_group=None, default=None, dtype=None, to_value=None, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L433)
+
+<a id="params_proto.v2.proto--argfactory.add_argument_group" />
+
+#### `ArgFactory.add_argument_group`
+
+```python
+def add_argument_group(self, name, description)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L501)
+
+<a id="params_proto.v2.proto--argfactory.parse_args" />
+
+#### `ArgFactory.parse_args`
+
+```python
+def parse_args(self, *args)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L505)
+
+```python
+groups = defaultdict(lambda: None)
+```
+
+```python
+last_group = None
+```
+
+```python
+clear = __init__
+```
+
+<a id="params_proto.v2.proto--paramsproto" />
+
+### `ParamsProto`
+
+```python
+class ParamsProto(Bear, metaclass=Meta)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L516)
+
+<a id="params_proto.v2.proto--paramsproto.__init__" />
+
+#### `ParamsProto.__init__`
+
+```python
+def __init__(self, _deps=None, _prefix=None, **children)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L538)
+
+default init function, called after __new__.
+
+<a id="params_proto.v2.proto--find_ancestors" />
+
+### `find_ancestors`
+
+```python
+def find_ancestors(cls)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L626)
+
+Find all ancestors of a class.
+
+**Args**
+
+- `cls`: 
+
+Returns:
+
+<a id="params_proto.v2.proto--prefixproto" />
+
+### `PrefixProto`
+
+```python
+class PrefixProto(ParamsProto)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L645)
+
+A ParamsProto class with prefix set to True.
+
+Since we override the __init_subclass__ method, the returned classes instance is
+still a ParamsProto class. NOT a PrefixProto class.
+
+<a id="params_proto.v2.proto--inherited-members-3" />
+
+#### Inherited members
+
+- `__init__` — from [`params_proto.v2.proto.ParamsProto`](/reference/compatibility#params_proto.v2.proto--paramsproto)
+
+<a id="params_proto.v2.proto--is_subclass" />
+
+### `is_subclass`
+
+```python
+def is_subclass(cls, *, ancestors=(ParamsProto, PrefixProto), extra=tuple())
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L658)
+
+<a id="params_proto.v2.proto--is_base_class" />
+
+### `is_base_class`
+
+```python
+def is_base_class(cls, extra=tuple())
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L669)
+
+Check if a class is a base class of ParamsProto.
+
+**Args**
+
+- `cls`: 
+
+Returns:
+
+<a id="params_proto.v2.proto--update" />
+
+### `update`
+
+```python
+def update(Config: Union[type, Meta, ParamsProto], override)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L684)
+
+Update a ParamsProto namespace, or instance
+
+by the override dictionary. Note the dictionary
+    is dot.separated
+
+dot-keys are not yet implemented.
+
+**Args**
+
+- `Config`: 
+- `override`: 
+
+Returns:
+
+<a id="params_proto.v2.proto--args" />
+
+### `ARGS`
+
+```python
+ARGS = ArgFactory()
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L509)
+
+The reason we do not inherit from argparse, is because the
+argument group returns new instances, so unless we patch those
+classes as well, we will not be able to intercept these calls.
+(I tried that first.)
+
+For this reason we implement this as a funciton, with a stateful
+context.
+
+<a id="params_proto.v2.proto--args.__init__" />
+
+#### `ARGS.__init__`
+
+```python
+def __init__(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L422)
+
+<a id="params_proto.v2.proto--args.add_argument" />
+
+#### `ARGS.add_argument`
+
+```python
+def add_argument(self, proto, key, *name_or_flags, _argument_group=None, default=None, dtype=None, to_value=None, **kwargs)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L433)
+
+<a id="params_proto.v2.proto--args.add_argument_group" />
+
+#### `ARGS.add_argument_group`
+
+```python
+def add_argument_group(self, name, description)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L501)
+
+<a id="params_proto.v2.proto--args.parse_args" />
+
+#### `ARGS.parse_args`
+
+```python
+def parse_args(self, *args)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/proto.py#L505)
+
+```python
+groups = defaultdict(lambda: None)
+```
+
+```python
+last_group = None
+```
+
+```python
+clear = __init__
+```
+
+<a id="params_proto.v2.proto--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`all_available`](/reference/environment#params_proto.parse_env_template--all_available) — `params_proto.parse_env_template.all_available`
+- [`dot_to_deps`](/reference/compatibility#params_proto.v2.utils--dot_to_deps) — `params_proto.v2.utils.dot_to_deps`
+<a id="params_proto.v2.utils" />
+
+## params_proto.v2.utils
+
+<a id="params_proto.v2.utils--clean_ansi" />
+
+### `clean_ansi`
+
+```python
+def clean_ansi(string: str)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L8)
+
+<a id="params_proto.v2.utils--dot_to_deps" />
+
+### `dot_to_deps`
+
+```python
+def dot_to_deps(dot_dict, *prefixes)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L12)
+
+<a id="params_proto.v2.utils--read_deps" />
+
+### `read_deps`
+
+```python
+def read_deps(*path: str, should_flatten: bool=True) -> dict
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L42)
+
+Read YAML configuration file with additional functionality for Fast NeRF.
+
+Parameters
+----------
+path: path to the config file
+should_flatten: whether to flatten dicts within the config file
+
+Returns
+-------
+Dict where the config is flattened and base configuration loaded,
+if applicable.
+
+<a id="params_proto.v2.utils--flatten" />
+
+### `flatten`
+
+```python
+def flatten(nested_dict: dict, parent_key: str='', sep: str='.', generic_key: str='_flatten') -> dict
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L78)
+
+Flatten configuration dict. Use the "_flatten: False" key and value
+to flatten the dict in the YAML configuration files.

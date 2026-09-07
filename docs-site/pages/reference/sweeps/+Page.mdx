@@ -1,0 +1,717 @@
+---
+title: "Parameter sweeps"
+section: "API reference"
+order: 312
+description: "Compose parameter combinations, iterate experiments, and save or reload configurations. Start with `Sweep`; `piter` builds parameter iterators. The proxy and iterator classes below describe the supporting objects."
+tocLevel: 3
+---
+
+# Parameter sweeps
+
+Compose parameter combinations, iterate experiments, and save or reload configurations. Start with `Sweep`; `piter` builds parameter iterators. The proxy and iterator classes below describe the supporting objects.
+
+```python
+from params_proto import Sweep
+```
+
+See [hyperparameter sweeps](/key_concepts/hyperparameter_sweeps) for complete examples.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`BaseProxy`](/reference/sweeps#params_proto.hyper.proxies--baseproxy) | class | `params_proto.hyper.proxies` |
+| [`ClassProxy`](/reference/sweeps#params_proto.hyper.proxies--classproxy) | class | `params_proto.hyper.proxies` |
+| [`FuncProxy`](/reference/sweeps#params_proto.hyper.proxies--funcproxy) | class | `params_proto.hyper.proxies` |
+| [`PrefixProxy`](/reference/sweeps#params_proto.hyper.proxies--prefixproxy) | class | `params_proto.hyper.proxies` |
+| [`ParameterIterator`](/reference/sweeps#params_proto.hyper.sweep--parameteriterator) | class | `params_proto.hyper.sweep` |
+| [`PiterFactory`](/reference/sweeps#params_proto.hyper.sweep--piterfactory) | class | `params_proto.hyper.sweep` |
+| [`dot_join`](/reference/sweeps#params_proto.hyper.sweep--dot_join) | function | `params_proto.hyper.sweep` |
+| [`key_items`](/reference/sweeps#params_proto.hyper.sweep--key_items) | function | `params_proto.hyper.sweep` |
+| [`flatten_items`](/reference/sweeps#params_proto.hyper.sweep--flatten_items) | function | `params_proto.hyper.sweep` |
+| [`SweepProxy`](/reference/sweeps#params_proto.hyper.sweep--sweepproxy) | class | `params_proto.hyper.sweep` |
+| [`Sweep`](/reference/sweeps#params_proto.hyper.sweep--sweep) | class | `params_proto.hyper.sweep` |
+| [`piter`](/reference/sweeps#params_proto.hyper.sweep--piter) | singleton | `params_proto.hyper.sweep` |
+
+<a id="params_proto.hyper" />
+
+## params_proto.hyper
+
+Hyperparameter sweep module for params-proto v3.
+
+<a id="params_proto.hyper--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ParameterIterator`](/reference/sweeps#params_proto.hyper.sweep--parameteriterator) — `params_proto.hyper.sweep.ParameterIterator`
+- [`Sweep`](/reference/sweeps#params_proto.hyper.sweep--sweep) — `params_proto.hyper.sweep.Sweep`
+- [`piter`](/reference/sweeps#params_proto.hyper.sweep--piter) — `params_proto.hyper.sweep.piter`
+<a id="params_proto.hyper.proxies" />
+
+## params_proto.hyper.proxies
+
+Proxy classes for Sweep integration with v3 proto decorators.
+
+<a id="params_proto.hyper.proxies--baseproxy" />
+
+### `BaseProxy`
+
+```python
+class BaseProxy
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/proxies.py#L7)
+
+Base proxy providing common Sweep interface.
+
+<a id="params_proto.hyper.proxies--baseproxy.__init__" />
+
+#### `BaseProxy.__init__`
+
+```python
+def __init__(self, proto_obj)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/proxies.py#L10)
+
+Wrap a proto object.
+
+<a id="params_proto.hyper.proxies--classproxy" />
+
+### `ClassProxy`
+
+```python
+class ClassProxy(BaseProxy)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/proxies.py#L44)
+
+Proxy for @proto decorated classes (non-prefix).
+
+<a id="params_proto.hyper.proxies--inherited-members" />
+
+#### Inherited members
+
+- `__init__` — from [`params_proto.hyper.proxies.BaseProxy`](/reference/sweeps#params_proto.hyper.proxies--baseproxy)
+
+<a id="params_proto.hyper.proxies--funcproxy" />
+
+### `FuncProxy`
+
+```python
+class FuncProxy(BaseProxy)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/proxies.py#L71)
+
+Proxy for @proto.cli decorated functions (non-prefix).
+
+<a id="params_proto.hyper.proxies--inherited-members-1" />
+
+#### Inherited members
+
+- `__init__` — from [`params_proto.hyper.proxies.BaseProxy`](/reference/sweeps#params_proto.hyper.proxies--baseproxy)
+
+<a id="params_proto.hyper.proxies--prefixproxy" />
+
+### `PrefixProxy`
+
+```python
+class PrefixProxy(BaseProxy)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/proxies.py#L98)
+
+Proxy for @proto.prefix decorated classes/functions.
+
+<a id="params_proto.hyper.proxies--inherited-members-2" />
+
+#### Inherited members
+
+- `__init__` — from [`params_proto.hyper.proxies.BaseProxy`](/reference/sweeps#params_proto.hyper.proxies--baseproxy)
+
+<a id="params_proto.hyper.proxies--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ProtoWrapper`](/reference/configuration#params_proto.proto--protowrapper) — `params_proto.proto.ProtoWrapper`
+<a id="params_proto.hyper.sweep" />
+
+## params_proto.hyper.sweep
+
+v3 hyperparameter sweep implementation.
+
+<a id="params_proto.hyper.sweep--parameteriterator" />
+
+### `ParameterIterator`
+
+```python
+class ParameterIterator
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L24)
+
+Lazy iterator over parameter configurations.
+
+Supports operations like product (*), override (%), and power (**).
+
+<a id="params_proto.hyper.sweep--parameteriterator.__init__" />
+
+#### `ParameterIterator.__init__`
+
+```python
+def __init__(self, iterator, protos=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L31)
+
+Initialize parameter iterator.
+
+**Args**
+
+- `iterator`: Generator or iterable of config dicts
+- `protos`: Optional dict of proto objects for context
+
+<a id="params_proto.hyper.sweep--parameteriterator.list" />
+
+#### `ParameterIterator.list`
+
+```python
+def list(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L53)
+
+Materialize all configs into a list.
+
+<a id="params_proto.hyper.sweep--parameteriterator.to_list" />
+
+#### `ParameterIterator.to_list`
+
+```python
+def to_list(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L59)
+
+Materialize all configs into a list (alias for .list).
+
+<a id="params_proto.hyper.sweep--parameteriterator.save" />
+
+#### `ParameterIterator.save`
+
+```python
+def save(self, filename='sweep.jsonl', overwrite=True, verbose=True)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L146)
+
+Save parameter configurations to JSONL file.
+
+**Args**
+
+- `filename`: Path to output file (str or PathLike)
+- `overwrite`: If True, overwrite existing file; if False, append
+- `verbose`: If True, print save confirmation
+
+**Example**
+
+```python
+configs = piter @ {"lr": [0.001, 0.01]} * {"batch_size": [32, 64]}
+configs.save("experiment.jsonl")
+```
+
+<a id="params_proto.hyper.sweep--parameteriterator.load" />
+
+#### `ParameterIterator.load`
+
+```python
+def load(filename='sweep.jsonl')
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L187)
+
+Load parameter configurations from JSONL file.
+
+**Args**
+
+- `filename`: Path to input file (str or PathLike)
+
+**Returns**
+
+ParameterIterator with loaded configurations
+
+**Example**
+
+```python
+configs = ParameterIterator.load("experiment.jsonl")
+for config in configs:
+    run_experiment(**config)
+```
+
+<a id="params_proto.hyper.sweep--piterfactory" />
+
+### `PiterFactory`
+
+```python
+class PiterFactory
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L218)
+
+Factory for creating parameter iterators.
+
+Supports both function-call syntax and @ operator syntax:
+    piter(&#123;"lr": [0.001, 0.01]&#125;)      # function call
+    piter @ &#123;"lr": [0.001, 0.01]&#125;     # @ operator
+
+The @ operator enables clean chaining:
+    piter @ &#123;"lr": [0.001, 0.01]&#125; * piter @ &#123;"batch_size": [32, 64]&#125;
+
+<a id="params_proto.hyper.sweep--dot_join" />
+
+### `dot_join`
+
+```python
+def dot_join(*keys)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L295)
+
+Remove Nones from the keys, but not empty strings.
+
+<a id="params_proto.hyper.sweep--key_items" />
+
+### `key_items`
+
+```python
+def key_items(d, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L306)
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]].
+Yields items with optional prefix.
+
+<a id="params_proto.hyper.sweep--flatten_items" />
+
+### `flatten_items`
+
+```python
+def flatten_items(row) -> Iterable[Item]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L316)
+
+Recursively flatten nested items.
+
+<a id="params_proto.hyper.sweep--sweepproxy" />
+
+### `SweepProxy`
+
+```python
+class SweepProxy
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L327)
+
+Proxy that switches between normal delegation and sweep interception.
+
+When not in sweep context: delegates all access directly to wrapped ptype class
+When in sweep context: intercepts setattr to record sweep configurations
+
+<a id="params_proto.hyper.sweep--sweepproxy.__init__" />
+
+#### `SweepProxy.__init__`
+
+```python
+def __init__(self, proto_obj)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L335)
+
+Wrap a ptype class or ProtoWrapper.
+
+**Args**
+
+- `proto_obj`: The actual proto class (ptype instance) or ProtoWrapper
+
+<a id="params_proto.hyper.sweep--sweep" />
+
+### `Sweep`
+
+```python
+class Sweep
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L487)
+
+Hyperparameter sweep for v3 @proto decorated classes and functions.
+
+Supports product, zip, chain, and set operations for combining parameter configurations.
+
+<a id="params_proto.hyper.sweep--sweep.__init__" />
+
+#### `Sweep.__init__`
+
+```python
+def __init__(self, *protos)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L494)
+
+Initialize Sweep with proto objects.
+
+**Args**
+
+- `*protos`: ProtoWrapper instances or metaclass-based proto classes
+
+<a id="params_proto.hyper.sweep--sweep.items" />
+
+#### `Sweep.items`
+
+```python
+def items(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L565)
+
+Return enumerated sweep configurations.
+
+<a id="params_proto.hyper.sweep--sweep.list" />
+
+#### `Sweep.list`
+
+```python
+def list(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L570)
+
+Convert sweep to list of configuration dicts.
+
+<a id="params_proto.hyper.sweep--sweep.to_list" />
+
+#### `Sweep.to_list`
+
+```python
+def to_list(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L574)
+
+Convert sweep to list of configuration dicts (alias for .list).
+
+<a id="params_proto.hyper.sweep--sweep.dataframe" />
+
+#### `Sweep.dataframe`
+
+```python
+def dataframe(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L672)
+
+Convert sweep to pandas DataFrame.
+
+<a id="params_proto.hyper.sweep--sweep.noot" />
+
+#### `Sweep.noot`
+
+```python
+def noot(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L690)
+
+Return deep copy of root protos.
+
+<a id="params_proto.hyper.sweep--sweep.snack" />
+
+#### `Sweep.snack`
+
+```python
+def snack(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L695)
+
+Return deep copy of stack.
+
+<a id="params_proto.hyper.sweep--sweep.original" />
+
+#### `Sweep.original`
+
+```python
+def original(self)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L732)
+
+Get original parameter values for each proto.
+
+<a id="params_proto.hyper.sweep--sweep.set_param" />
+
+#### `Sweep.set_param`
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L777)
+
+Add parameter to current sweep stack.
+
+<a id="params_proto.hyper.sweep--sweep.product" />
+
+#### `Sweep.product`
+
+```python
+def product(self) -> ContextManager[None]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L784)
+
+Context manager for Cartesian product of parameters.
+
+<a id="params_proto.hyper.sweep--sweep.zip" />
+
+#### `Sweep.zip`
+
+```python
+def zip(self) -> ContextManager[None]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L809)
+
+Context manager for element-wise zip of parameters.
+
+<a id="params_proto.hyper.sweep--sweep.set" />
+
+#### `Sweep.set`
+
+```python
+def set(self) -> ContextManager[None]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L834)
+
+Context manager for setting fixed parameter values.
+
+<a id="params_proto.hyper.sweep--sweep.chain" />
+
+#### `Sweep.chain`
+
+```python
+def chain(self) -> ContextManager[None]
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L843)
+
+Context manager for chaining multiple sweep configurations.
+
+<a id="params_proto.hyper.sweep--sweep.each" />
+
+#### `Sweep.each`
+
+```python
+def each(self, fn)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L866)
+
+Register a function to be called for each configuration.
+
+Useful for setting values that dynamically depend on other sweep values.
+
+<a id="params_proto.hyper.sweep--sweep.save" />
+
+#### `Sweep.save`
+
+```python
+def save(self, filename: str='sweep.jsonl', overwrite: bool=True, verbose: bool=True) -> None
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L876)
+
+Save sweep configurations to JSONL file.
+
+<a id="params_proto.hyper.sweep--sweep.save-1" />
+
+#### `Sweep.save`
+
+```python
+def save(self, filename: 'os.PathLike[str]', overwrite: bool=True, verbose: bool=True) -> None
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L881)
+
+Save sweep configurations to JSONL file.
+
+<a id="params_proto.hyper.sweep--sweep.save-2" />
+
+#### `Sweep.save`
+
+```python
+def save(self, filename='sweep.jsonl', overwrite=True, verbose=True)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L885)
+
+Save sweep configurations to JSONL file.
+
+**Args**
+
+- `filename`: Path to output file (str or PathLike)
+- `overwrite`: If True, overwrite existing file; if False, append
+- `verbose`: If True, print save confirmation
+
+<a id="params_proto.hyper.sweep--sweep.log" />
+
+#### `Sweep.log`
+
+```python
+def log(deps, filename)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L921)
+
+Append single config to JSONL file.
+
+<a id="params_proto.hyper.sweep--sweep.read" />
+
+#### `Sweep.read`
+
+```python
+def read(filename)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L929)
+
+Read JSONL file into list of dicts.
+
+<a id="params_proto.hyper.sweep--sweep.load" />
+
+#### `Sweep.load`
+
+```python
+def load(self, file: str, strict: bool=True, silent: bool=False) -> 'Sweep'
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L943)
+
+Load sweep configurations from JSONL file.
+
+<a id="params_proto.hyper.sweep--sweep.load-1" />
+
+#### `Sweep.load`
+
+```python
+def load(self, file: 'os.PathLike[str]', strict: bool=True, silent: bool=False) -> 'Sweep'
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L948)
+
+Load sweep configurations from JSONL file.
+
+<a id="params_proto.hyper.sweep--sweep.load-2" />
+
+#### `Sweep.load`
+
+```python
+def load(self, deps: List[Dict[str, Any]], strict: bool=True, silent: bool=False) -> 'Sweep'
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L953)
+
+Load sweep configurations from list of dicts.
+
+<a id="params_proto.hyper.sweep--sweep.load-3" />
+
+#### `Sweep.load`
+
+```python
+def load(self, df: 'pd.DataFrame', strict: bool=True, silent: bool=False) -> 'Sweep'
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L960)
+
+Load sweep configurations from pandas DataFrame.
+
+<a id="params_proto.hyper.sweep--sweep.load-4" />
+
+#### `Sweep.load`
+
+```python
+def load(self, file: Union[str, 'os.PathLike[str]', List[Dict[str, Any]], 'pd.DataFrame']='sweep.jsonl', strict: bool=True, silent: bool=False)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L966)
+
+Load sweep configurations from JSONL file or list.
+
+**Args**
+
+- `file`: Filename (str or PathLike), list of dicts, or pandas DataFrame
+- `strict`: Raise error on missing attributes (default True)
+- `silent`: Suppress warnings about missing attributes (default False)
+
+**Returns**
+
+self for chaining
+
+<a id="params_proto.hyper.sweep--piter" />
+
+### `piter`
+
+```python
+piter = PiterFactory()
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L292)
+
+Factory for creating parameter iterators.
+
+Supports both function-call syntax and @ operator syntax:
+    piter(&#123;"lr": [0.001, 0.01]&#125;)      # function call
+    piter @ &#123;"lr": [0.001, 0.01]&#125;     # @ operator
+
+The @ operator enables clean chaining:
+    piter @ &#123;"lr": [0.001, 0.01]&#125; * piter @ &#123;"batch_size": [32, 64]&#125;
+
+<a id="params_proto.hyper.sweep--piter.__call__" />
+
+#### `piter.__call__`
+
+```python
+def __call__(self, spec)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L230)
+
+Create parameter iterator (function-call syntax).
+
+<a id="params_proto.hyper.sweep--piter.__matmul__" />
+
+#### `piter.__matmul__`
+
+```python
+def __matmul__(self, spec)
+```
+
+[Source](https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/hyper/sweep.py#L234)
+
+Create parameter iterator (@ operator syntax).
+
+<a id="params_proto.hyper.sweep--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ProtoWrapper`](/reference/configuration#params_proto.proto--protowrapper) — `params_proto.proto.ProtoWrapper`
+- [`ptype`](/reference/configuration#params_proto.proto--ptype) — `params_proto.proto.ptype`

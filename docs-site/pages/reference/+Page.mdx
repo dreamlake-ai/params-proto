@@ -1,17 +1,37 @@
 ---
-title: "params_proto"
+title: "API overview"
 section: "API reference"
-order: 400
-description: "Python API reference for params_proto"
+order: 300
+description: "Find params-proto decorators, environment fields, sweeps, CLI helpers, and compatibility APIs."
 ---
 
-# params_proto
+# API reference
 
-## Public imports
+Start with the public imports. Related functions and classes are documented
+together on the topic pages below, with signatures, docstrings, and source links.
 
-These symbols are available from this module. Their definitions are documented in the linked modules.
+```python
+from params_proto import proto, EnvVar, Field, get_var, Sweep
+```
 
-- [`Field`](/reference/envvar#field) — `params_proto.envvar.Field`
-- [`get_var`](/reference/envvar#get_var) — `params_proto.envvar.get_var`
-- [`proto`](/reference/proto#proto) — `params_proto.proto.proto`
-- [`Sweep`](/reference/hyper/sweep#sweep) — `params_proto.hyper.sweep.Sweep`
+| Topic | Main APIs | Use it to |
+| --- | --- | --- |
+| [Configuration](/reference/configuration) | `proto`, `proto.cli`, `proto.prefix`, `proto.bind`, `proto.parse`, `proto.partial` | Declare configuration, expose commands, and apply overrides. |
+| [Environment & fields](/reference/environment) | `EnvVar`, `Field`, `get_var` | Read environment values and compute fields. |
+| [Parameter sweeps](/reference/sweeps) | `Sweep`, `piter`, `ParameterIterator` | Compose and iterate experiments. |
+| [CLI helpers](/reference/cli#params_proto.cli) | `parse_cli_args`, `colorize_help`, `get_terminal_width` | Customize parsing and help output. |
+| [Compatibility](/reference/compatibility) | v1 and v2 classes, functions, and sweeps | Maintain code using compatibility APIs bundled with this release. |
+
+Each page starts with a linked API index. Module sections retain the source
+context; methods stay with their classes. Lower-level implementation types
+are included where they support the public APIs, without separate sidebar pages.
+
+## Examples and earlier versions
+
+For a walkthrough, start with [Quick start](/quick_start),
+[configuration patterns](/key_concepts/configuration-patterns), or
+[hyperparameter sweeps](/key_concepts/hyperparameter_sweeps).
+
+The compatibility page describes the modules shipped in the selected source
+version. Historical guides and earlier builds remain available through the
+version selector.
