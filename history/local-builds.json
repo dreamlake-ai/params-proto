@@ -1,0 +1,9 @@
+{
+  "builds": [
+    {
+      "source": "/Users/ge/fortyfive/params-proto/docs/_build",
+      "filename": "local-docs-build.tar.gz",
+      "sha256": "2bbaffce0161b3822bae1b031b2a60f3ecba5952826fc11da8a92699a4891ea3"
+    }
+  ]
+}

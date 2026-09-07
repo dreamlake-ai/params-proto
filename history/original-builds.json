@@ -1,0 +1,132 @@
+{
+  "builds": [
+    {
+      "version": "v3.3.0",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.3.0/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.3.0/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.2.0",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.2.0/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.2.0/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.1.0",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.1.0/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.1.0/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc8",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc8/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc8/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc7",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc7/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc7/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc6",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc6/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc6/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc4",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc4/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc4/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc3",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc3/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc3/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc27",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc27/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc27/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc25",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc25/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc25/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc23",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc23/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc23/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc20",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc20/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc20/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc17",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc17/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc17/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "v3.0.0-rc10",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/v3.0.0-rc10/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/v3.0.0-rc10/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "stable",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/stable/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/stable/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    },
+    {
+      "version": "latest",
+      "url": "https://params-proto.readthedocs.io/_/downloads/en/latest/htmlzip/",
+      "documentation_url": "https://params-proto.readthedocs.io/en/latest/",
+      "rtd_reports_built": true,
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    }
+  ]
+}
