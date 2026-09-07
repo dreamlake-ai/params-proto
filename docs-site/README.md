@@ -28,7 +28,7 @@ from the version's source tree, without importing or running historical packages
 To regenerate the API with the published, pinned generator:
 
 ```sh
-uvx --from 'git+https://github.com/dreamlake-ai/autodoc-py@caf253e7a5c55147bca00f6662821572cb410575' autodoc-py ../src/params_proto --output pages/reference --module params_proto --section 'API reference'
+uvx --from 'git+https://github.com/dreamlake-ai/autodoc-py@9108a3f15fd88502f72876a6d478e1d240d444a5' autodoc-py ../src/params_proto --output pages/reference --module params_proto --section 'API reference'
 ```
 
 After generation, review sidebar order and normalize relative API links to the
