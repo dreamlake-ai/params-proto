@@ -9,7 +9,7 @@ Captured 2026-09-07 from the original Git repository, PyPI JSON API, and Read th
 
 `readthedocs-versions.json` lists 92 RTD version entries. Sixteen report existing builds (14 version tags plus latest/stable). `readthedocs-builds.json` preserves the 76 build metadata records exposed by the API. `original-builds.json` records original documentation links, download attempts, and preservation status. The API reports these versions as built, but rendered pages and HTML ZIP downloads returned HTTP 403 during capture. These original rendered bytes are **not preserved**. Keep the existing RTD project intact until an authorized export becomes available. Links may remain useful in a normal browser but were not verified accessible here.
 
-`local-builds.json` records any local Sphinx `_build` archives; an empty array means no local built output was found.
+`local-builds.json` records the preserved original local Sphinx build at `/Users/ge/fortyfive/params-proto/docs/_build`. Its archive contains 222 entries including 46 HTML pages (1,790,789 compressed bytes). Remote RTD originals remain unavailable; this local rendered output is preserved.
 
 Reproduce the inventory and source snapshots with:
 
