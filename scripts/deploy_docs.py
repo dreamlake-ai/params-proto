@@ -67,7 +67,7 @@ def main():
             raise RuntimeError(f'Deploy {deploy["id"]}: {deploy["state"]}: {deploy.get("error_message")}')
         time.sleep(3)
         deploy = request(f'/deploys/{deploy["id"]}', credential)
-    if deploy.get('context') != 'branch-deploy' or deploy.get('branch') != args.branch:
+    if deploy.get('context') != 'branch-deploy' or deploy.get('branch') not in (args.branch, re.sub(r'[^a-z0-9-]', '-', args.branch.lower())):
         raise RuntimeError(f'Expected retained branch deploy, got {deploy.get("context")} {deploy.get("branch")}')
     result = {key: deploy.get(key) for key in ('id', 'state', 'branch', 'context', 'deploy_ssl_url', 'links')}
     result.update({'archive': zip_path.name, 'sha256': sha})
