@@ -26,4 +26,4 @@ Current source is on the fork's `main`; the existing-version documentation snaps
 
 Original documentation and sources are preserved on [`docs/archive-originals`](https://github.com/dreamlake-ai/params-proto/tree/docs/archive-originals). Its README explains restoration and checksums. `history/` records exactly which originals were available; RTD build metadata does not imply its rendered HTML was downloaded.
 
-Deployment is explicitly performed by the command above. Git-triggered Netlify CI is not required for the launch and should be verified separately before relying on automatic publication.
+Deployment is explicitly performed by the verified command above. Automatic Git builds are paused for this initial iteration: repository checkout succeeds, but the cloud build failed during prerendering without a useful final error in the available log. The production build was built and checked locally, archived, then uploaded as a retained branch deploy. Verify cloud CI separately before re-enabling automatic publication. The Netlify repository uses a read-only deploy key; the live site remains available while automatic builds are paused.
