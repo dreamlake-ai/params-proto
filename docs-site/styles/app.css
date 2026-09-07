@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "@dreamlake/dockit/styles.css";
+@source "../pages";
+@source "../renderer";

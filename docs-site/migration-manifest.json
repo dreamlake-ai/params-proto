@@ -1,0 +1,105 @@
+{
+  "version": "3.3.0",
+  "pages": [
+    {
+      "source": "api/index.md",
+      "route": "/api/index"
+    },
+    {
+      "source": "api/proto.md",
+      "route": "/api/proto"
+    },
+    {
+      "source": "examples/basic_usage.md",
+      "route": "/examples/basic_usage"
+    },
+    {
+      "source": "examples/cli_applications.md",
+      "route": "/examples/cli_applications"
+    },
+    {
+      "source": "examples/ml_training.md",
+      "route": "/examples/ml_training"
+    },
+    {
+      "source": "examples/rl_agent.md",
+      "route": "/examples/rl_agent"
+    },
+    {
+      "source": "index.md",
+      "route": "/"
+    },
+    {
+      "source": "key_concepts/advanced_patterns.md",
+      "route": "/key_concepts/advanced_patterns"
+    },
+    {
+      "source": "key_concepts/ansi_formatting.md",
+      "route": "/key_concepts/ansi_formatting"
+    },
+    {
+      "source": "key_concepts/cli-fundamentals.md",
+      "route": "/key_concepts/cli-fundamentals"
+    },
+    {
+      "source": "key_concepts/cli-patterns.md",
+      "route": "/key_concepts/cli-patterns"
+    },
+    {
+      "source": "key_concepts/configuration-patterns.md",
+      "route": "/key_concepts/configuration-patterns"
+    },
+    {
+      "source": "key_concepts/core-concepts.md",
+      "route": "/key_concepts/core-concepts"
+    },
+    {
+      "source": "key_concepts/environment_variables.md",
+      "route": "/key_concepts/environment_variables"
+    },
+    {
+      "source": "key_concepts/help-generation.md",
+      "route": "/key_concepts/help-generation"
+    },
+    {
+      "source": "key_concepts/hyperparameter_sweeps.md",
+      "route": "/key_concepts/hyperparameter_sweeps"
+    },
+    {
+      "source": "key_concepts/naming-conventions.md",
+      "route": "/key_concepts/naming-conventions"
+    },
+    {
+      "source": "key_concepts/parameter-iteration.md",
+      "route": "/key_concepts/parameter-iteration"
+    },
+    {
+      "source": "key_concepts/parameter-overrides.md",
+      "route": "/key_concepts/parameter-overrides"
+    },
+    {
+      "source": "key_concepts/type-system.md",
+      "route": "/key_concepts/type-system"
+    },
+    {
+      "source": "key_concepts/union_types.md",
+      "route": "/key_concepts/union_types"
+    },
+    {
+      "source": "key_concepts/welcome.md",
+      "route": "/key_concepts/welcome"
+    },
+    {
+      "source": "migration.md",
+      "route": "/migration"
+    },
+    {
+      "source": "quick_start.md",
+      "route": "/quick_start"
+    },
+    {
+      "source": "release_notes.md",
+      "route": "/release_notes"
+    }
+  ]
+}

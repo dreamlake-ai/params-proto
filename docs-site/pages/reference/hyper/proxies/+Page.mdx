@@ -1,0 +1,68 @@
+---
+title: "params_proto.hyper.proxies"
+section: "API reference"
+order: 409
+description: "Python API reference for params_proto.hyper.proxies"
+---
+
+# params_proto.hyper.proxies
+
+Proxy classes for Sweep integration with v3 proto decorators.
+
+## BaseProxy
+
+```python
+class BaseProxy
+```
+
+Base proxy providing common Sweep interface.
+
+## BaseProxy.__init__
+
+```python
+def __init__(self, proto_obj)
+```
+
+Wrap a proto object.
+
+## ClassProxy
+
+```python
+class ClassProxy(BaseProxy)
+```
+
+Proxy for @proto decorated classes (non-prefix).
+
+### Inherited members
+
+- `__init__` — from `params_proto.hyper.proxies.BaseProxy`
+
+## FuncProxy
+
+```python
+class FuncProxy(BaseProxy)
+```
+
+Proxy for @proto.cli decorated functions (non-prefix).
+
+### Inherited members
+
+- `__init__` — from `params_proto.hyper.proxies.BaseProxy`
+
+## PrefixProxy
+
+```python
+class PrefixProxy(BaseProxy)
+```
+
+Proxy for @proto.prefix decorated classes/functions.
+
+### Inherited members
+
+- `__init__` — from `params_proto.hyper.proxies.BaseProxy`
+
+## Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ProtoWrapper`](/reference/proto#protowrapper) — `params_proto.proto.ProtoWrapper`

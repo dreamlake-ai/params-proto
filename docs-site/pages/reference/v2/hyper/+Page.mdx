@@ -1,0 +1,183 @@
+---
+title: "params_proto.v2.hyper"
+section: "API reference"
+order: 418
+description: "Python API reference for params_proto.v2.hyper"
+---
+
+# params_proto.v2.hyper
+
+## dot_join
+
+```python
+def dot_join(*keys)
+```
+
+remove Nones from the keys, but not '',
+
+## key_items
+
+```python
+def key_items(d, prefix=None)
+```
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]]
+returns wtf
+
+## flatten_items
+
+```python
+def flatten_items(row) -> Iterable[Item]
+```
+
+## Sweep
+
+```python
+class Sweep
+```
+
+## Sweep.each
+
+```python
+def each(self, fn)
+```
+
+## Sweep.__init__
+
+```python
+def __init__(self, *protos: Meta)
+```
+
+## Sweep.items
+
+```python
+def items(self)
+```
+
+## Sweep.list
+
+```python
+def list(self)
+```
+
+returns self as a list. Currently not idempotent. Might become idempotent in the future.
+
+## Sweep.dataframe
+
+```python
+def dataframe(self)
+```
+
+## Sweep.noot
+
+```python
+def noot(self)
+```
+
+## Sweep.snack
+
+```python
+def snack(self)
+```
+
+## Sweep.original
+
+```python
+def original(self)
+```
+
+## Sweep.set_param
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+## Sweep.product
+
+```python
+def product(self) -> ContextManager[None]
+```
+
+## Sweep.zip
+
+```python
+def zip(self) -> ContextManager[T]
+```
+
+## Sweep.set
+
+```python
+def set(self) -> ContextManager[T]
+```
+
+## Sweep.chain
+
+```python
+def chain(self) -> ContextManager[T]
+```
+
+## Sweep.save
+
+```python
+def save(self, filename='sweep.jsonl', overwrite=True, verbose=True)
+```
+
+## Sweep.log
+
+```python
+def log(deps, filename)
+```
+
+append deps object to a JSONL log file, used as a helper function
+
+## Sweep.read
+
+```python
+def read(filename)
+```
+
+Read JSONL log files, used as a helper function
+
+## Sweep.load
+
+```python
+def load(self, file='sweep.jsonl', strict=True, silent=False)
+```
+
+Loading sweep state from a jsonl file:
+
+Note: **Important Caveat** When multiple prefix-free ParamsProto objects are present,
+    We sweep through all of the proto objects and sets the attribute to the first
+    proto with the correct key. This first-attr approach works because the ParamsProto
+    object also generates argparse parameters, which means repetitive arguments are
+    not possible.
+
+    However this would fail in cases where attributes are dynamically added to an
+    argument object. The `sweep.jsonl` file loses this type of information, therefore
+    there is no way to recover this type of attributes. So the user should try to
+    either use PrefixProto, or explicitly define the attributes.
+
+Usage Pattern 1: Loading from a file::
+
+    sweep = Sweep(Args, RUN).load('sweep.jsonl')
+    for i, deps in enumerate(sweep):
+        assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+
+Usage Pattern 2: Loading from a sweep list object or a pandas DataFrame::
+
+    sweep_list = Sweep.read(sweep.jsonl)
+    sweep = Sweep(Args, RUN).load(sweep_list)
+    for i, deps in enumerate(sweep):
+        assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+
+```python
+file = None
+```
+
+## Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`Meta`](/reference/v2/proto#meta) — `params_proto.v2.proto.Meta`
+- [`ParamsProto`](/reference/v2/proto#paramsproto) — `params_proto.v2.proto.ParamsProto`
+- [`Proto`](/reference/v2/proto#proto) — `params_proto.v2.proto.Proto`

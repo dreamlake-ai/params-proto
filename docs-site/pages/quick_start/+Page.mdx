@@ -1,0 +1,307 @@
+---
+title: "Quick Start Guide"
+section: "Getting started"
+order: 1
+description: "Quick Start Guide \u2014 params-proto 3.3.0 documentation."
+---
+
+# Quick Start Guide
+
+Get started with params-proto v3 in 10 minutes!
+
+```bash
+pip install params-proto==3.3.0
+```
+
+Or with uv:
+
+```bash
+uv add params-proto==3.3.0
+```
+
+## Using with Claude Code
+
+params-proto includes a plugin that helps Claude write better configs and CLIs. Install it:
+
+```bash
+/plugin marketplace add geyang/params-proto
+/plugin install params-proto@params-proto
+```
+
+The plugin provides a skill that automatically activates when you're working with params-proto code.
+
+## Your First Proto Function CLI
+
+Let's start with a simple train function---Just add `@proto.cli` and params-proto handles the rest.
+
+Create `train.py`:
+
+```python
+from params_proto import proto
+
+
+@proto.cli
+def train(
+  lr: float = 0.001,  # Learning rate
+  batch_size: int = 32,  # Training batch size
+  epochs: int = 100,  # Number of training epochs
+):
+  """Train a neural network on CIFAR-10."""
+  print(f"Training: {epochs} epochs, lr={lr}, batch_size={batch_size}")
+
+
+if __name__ == "__main__":
+  train()
+```
+
+**That's it!** No argparse boilerplate. Just type hints and inline comments.
+
+```text
+Training: 100 epochs, lr=0.001, batch_size=32
+```
+## Overview: Three Decorators
+
+params-proto v3 provides three decorators in two categories:
+
+### Config Decorators (define parameter schemas)
+
+| Decorator       | Scope              | Use Case                                                 |
+|-----------------|--------------------|----------------------------------------------------------|
+| `@proto`        | Multiple instances | Library code, reusable components                        |
+| `@proto.prefix` | Singleton (global) | Namespaced config groups (`Model.lr`, `Training.epochs`) |
+
+### App Decorator (creates CLI entry point)
+
+| Decorator    | Use Case                                                        |
+|--------------|-----------------------------------------------------------------|
+| `@proto.cli` | Script entry points—wraps a function or class to parse CLI args |
+
+**Typical pattern:** Define configs with `@proto`/`@proto.prefix`, then create an entry point with `@proto.cli`.
+
+Run it:
+
+```bash
+$ python train.py --help
+```
+
+```text
+usage: train.py [-h] [--lr FLOAT] [--batch-size INT] [--epochs INT]
+
+Train a neural network on CIFAR-10.
+
+options:
+  -h, --help           show this help message and exit
+  --lr FLOAT           Learning rate (default: 0.001)
+  --batch-size INT     Training batch size (default: 32)
+  --epochs INT         Number of training epochs (default: 100)
+```
+```bash
+$ python train.py
+```
+
+```text
+Training for 100 epochs
+  Learning rate: 0.001
+  Batch size: 32
+```
+```bash
+$ python train.py --lr 0.01 --batch-size 64
+```
+
+```text
+Training for 100 epochs
+  Learning rate: 0.01
+  Batch size: 64
+```
+## Python Namespaces as Config Singletons
+
+As your config grows, classes provide better organization. Use `@proto` to turn a class into a configuration.
+
+Create `config.py`:
+
+```python
+from params_proto import proto
+
+
+@proto
+class Params:
+    """Training configuration."""
+
+    # Model settings
+    model: str = "resnet50"  # Model architecture
+    pretrained: bool = True  # Use pretrained weights
+
+    # Training settings
+    lr: float = 0.001  # Learning rate
+    batch_size: int = 32  # Batch size
+    epochs: int = 100  # Number of epochs
+
+    # Data settings
+    data_dir: str = "./data"  # Data directory
+    num_workers: int = 4  # Number of data loading workers
+
+
+# Access as class attributes
+print(f"Training {Params.model} with lr={Params.lr}")
+
+# Or create an instance
+config = Params()
+print(f"Batch size: {config.batch_size}")
+```
+
+**Key difference**: Classes use attributes (`Params.lr`), functions use parameters (`train(lr=0.001)`).
+
+## Composing Configurations from Multiple Locations
+
+For larger projects, split configuration into logical groups using `@proto.prefix`. This creates namespaced parameters
+like `--model.name` and `--training.lr`.
+
+Create `train_rl.py`:
+
+```python
+from params_proto import proto
+
+
+@proto.prefix
+class Model:
+  """Model configuration."""
+  name: str = "resnet50"  # Architecture name
+  pretrained: bool = True  # Use pretrained weights
+  dropout: float = 0.5  # Dropout rate
+
+
+@proto.prefix
+class Data:
+  """Data configuration."""
+  dataset: str = "cifar10"  # Dataset name
+  data_dir: str = "./data"  # Data directory
+  num_workers: int = 4  # Data loading workers
+
+
+@proto.prefix
+class Training:
+  """Training hyperparameters."""
+  lr: float = 0.001  # Learning rate
+  batch_size: int = 32  # Batch size
+  epochs: int = 100  # Number of epochs
+
+
+@proto.cli
+def main(
+  seed: int = 42,  # Random seed
+  device: str = "cuda",  # Device to use (cuda/cpu)
+):
+  """Train a model on a dataset."""
+  print(f"Training {Model.name} on {Data.dataset}")
+  print(f"  LR: {Training.lr}, Batch size: {Training.batch_size}")
+  print(f"  Device: {device}, Seed: {seed}")
+
+
+if __name__ == "__main__":
+  main()
+```
+
+Notice how parameters are organized into groups! Run it:
+
+```text
+usage: train_rl.py [-h] [--seed INT] [--device STR] [OPTIONS]
+
+Train a model on a dataset.
+
+options:
+  -h, --help                   show this help message and exit
+  --seed INT                   Random seed (default: 42)
+  --device STR                 Device to use (cuda/cpu) (default: cuda)
+
+Model options:
+  Model configuration.
+
+  --model.name STR             Architecture name (default: resnet50)
+  --model.pretrained           Use pretrained weights (default: True)
+  --model.dropout FLOAT        Dropout rate (default: 0.5)
+
+Data options:
+  Data configuration.
+
+  --data.dataset STR           Dataset name (default: cifar10)
+  --data.data-dir STR          Data directory (default: ./data)
+  --data.num-workers INT       Data loading workers (default: 4)
+
+Training options:
+  Training hyperparameters.
+
+  --training.lr FLOAT          Learning rate (default: 0.001)
+  --training.batch-size INT    Batch size (default: 32)
+  --training.epochs INT        Number of epochs (default: 100)
+```
+Run it:
+
+```text
+Training resnet50 on cifar10
+  LR: 0.001, Batch size: 32
+  Device: cuda, Seed: 42
+```
+With custom arguments:
+
+```text
+Training vit on cifar10
+  LR: 0.0001, Batch size: 32
+  Device: cuda, Seed: 123
+```
+**Prefixes create organization**: Each `@proto.prefix` class becomes a group in the help text and uses dotted notation
+on the CLI.
+
+## Summary: Three Patterns
+
+You've learned three core patterns in 10 minutes:
+
+| Pattern       | Decorator       | Use Case                | Access Pattern                  |
+|---------------|-----------------|-------------------------|---------------------------------|
+| **Functions** | `@proto.cli`    | Simple CLIs, scripts    | Function parameters             |
+| **Classes**   | `@proto`        | Organized configs       | Class attributes                |
+| **Prefixes**  | `@proto.prefix` | Multi-namespace configs | Namespaced (e.g., `Model.name`) |
+
+## Quick Tips
+
+**Type hints are required**: params-proto uses type hints for parsing and validation.
+
+```python
+lr: float = 0.001  # ✅ Required
+lr = 0.001  # ❌ Won't work
+```
+
+**Inline comments become help text**: Write comments after parameters.
+
+```python
+lr: float = 0.001  # Learning rate  ← This appears in --help
+```
+
+**Override anywhere**: CLI, direct assignment, context managers, config files.
+
+```python
+# CLI
+$ python
+train.py - -lr
+0.01
+
+# Direct assignment
+Training.lr = 0.01
+
+# Context manager
+with proto.bind(lr=0.01):
+  train()
+```
+
+## What's Next?
+
+Now that you've mastered the basics, dive deeper:
+
+- **`Decorators`** - `@proto.cli`, `@proto.prefix`, `@proto` in detail
+- **`Functions`** - Function-based CLIs and advanced patterns
+- **`Classes`** - Class-based configuration strategies
+- **[Types](/key_concepts/type-system)** - Union types, Literals, Enums, and validation
+- **`Prefixes`** - Composing configs from multiple namespaces
+- **`Overrides`** - CLI, programmatic, YAML, and more
+- **`Subcommands`** - Multi-command CLIs (design doc)
+
+Or jump straight to **`Examples`** for real-world patterns!

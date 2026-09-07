@@ -1,0 +1,45 @@
+---
+title: "params_proto.envvar"
+section: "API reference"
+order: 407
+description: "Python API reference for params_proto.envvar"
+---
+
+# params_proto.envvar
+
+Environment variable support for params-proto.
+
+Provides EnvVar class for reading configuration from environment variables
+with automatic type conversion and template expansion.
+
+## get_var
+
+```python
+def get_var(default: Any=None, *, env: str=None)
+```
+
+Mark a field as an environment variable.
+
+Args:
+    default: Default value if env var not set
+    env: Environment variable name (defaults to field name)
+
+## Field
+
+```python
+def Field(fn: Callable)
+```
+
+Decorator to mark a method as a computed field.
+
+Args:
+    fn: The method to decorate
+
+Returns:
+    The decorated method
+
+## Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`parse_env_template`](/reference/parse_env_template#parse_env_template) — `params_proto.parse_env_template.parse_env_template`

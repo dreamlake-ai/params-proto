@@ -1,0 +1,311 @@
+---
+title: "params_proto.v2.proto"
+section: "API reference"
+order: 420
+description: "Python API reference for params_proto.v2.proto"
+---
+
+# params_proto.v2.proto
+
+## Proto
+
+```python
+class Proto(SimpleNamespace)
+```
+
+## Proto.__init__
+
+```python
+def __init__(self, default=None, help=None, dtype=None, metavar='\x08', env=None, strict_parsing=False, **kwargs)
+```
+
+The proto object. The env attribute allows one to set the environment variable
+from which this proto reads value from.
+
+:param default:
+:param help:
+:param dtype:
+:param metavar:
+:param env: the environment variable for the default value -- in the next version could be set
+     automatically from the prefix of the class.
+:param strict_parsing: default to False, when true raises error for env var that are not set.
+      this is passed onto the expandvars function as nounset.
+:param kwargs:
+
+## Proto.value
+
+```python
+def value(self)
+```
+
+## Proto.value
+
+```python
+def value(self, value)
+```
+
+```python
+default = None
+```
+
+```python
+help = None
+```
+
+```python
+dtype = None
+```
+
+## Flag
+
+```python
+class Flag(Proto)
+```
+
+## Flag.__init__
+
+```python
+def __init__(self, help=None, to_value=True, default=None, dtype=None, **kwargs)
+```
+
+### Inherited members
+
+- `default` — from `params_proto.v2.proto.Proto`
+- `help` — from `params_proto.v2.proto.Proto`
+- `dtype` — from `params_proto.v2.proto.Proto`
+- `value` — from `params_proto.v2.proto.Proto`
+
+## Accumulant
+
+```python
+class Accumulant(Proto)
+```
+
+used by neo_hyper to avoid reset.
+
+## Accumulant.__init__
+
+```python
+def __init__(self, *args, **kwargs)
+```
+
+### Inherited members
+
+- `default` — from `params_proto.v2.proto.Proto`
+- `help` — from `params_proto.v2.proto.Proto`
+- `dtype` — from `params_proto.v2.proto.Proto`
+- `value` — from `params_proto.v2.proto.Proto`
+
+```python
+accumulant = True
+```
+
+## StrType
+
+```python
+class StrType(type)
+```
+
+```python
+thunk = None
+```
+
+```python
+help = None
+```
+
+## Eval
+
+```python
+class Eval(Proto, metaclass=StrType)
+```
+
+## Eval.__init__
+
+```python
+def __init__(self, default, help=None, **kwargs)
+```
+
+### Inherited members
+
+- `default` — from `params_proto.v2.proto.Proto`
+- `help` — from `params_proto.v2.proto.Proto`
+- `dtype` — from `params_proto.v2.proto.Proto`
+- `value` — from `params_proto.v2.proto.Proto`
+
+```python
+thunk = None
+```
+
+## is_private
+
+```python
+def is_private(k: str) -> bool
+```
+
+Filter Private Attributes.
+
+Args:
+    k: &lt;str&gt; the key to be tested.
+
+Returns True if key equals "_prefix", or starts with "__" or "_&lt;ParentClass&gt;_"
+
+## get_children
+
+```python
+def get_children(__init__)
+```
+
+decorator to parse the dependencies into current scope,
+using the cls._prefix attribute of the namespace.
+
+Allows one to use _prefix to override to original class._prefix
+
+## Meta
+
+```python
+class Meta(type)
+```
+
+## Meta.__init__
+
+```python
+def __init__(cls, name, bases, namespace, cli=True, cli_parse=True, **kwargs)
+```
+
+## ArgFactory
+
+```python
+class ArgFactory
+```
+
+The reason we do not inherit from argparse, is because the
+argument group returns new instances, so unless we patch those
+classes as well, we will not be able to intercept these calls.
+(I tried that first.)
+
+For this reason we implement this as a funciton, with a stateful
+context.
+
+## ArgFactory.__init__
+
+```python
+def __init__(self)
+```
+
+## ArgFactory.add_argument
+
+```python
+def add_argument(self, proto, key, *name_or_flags, _argument_group=None, default=None, dtype=None, to_value=None, **kwargs)
+```
+
+## ArgFactory.add_argument_group
+
+```python
+def add_argument_group(self, name, description)
+```
+
+## ArgFactory.parse_args
+
+```python
+def parse_args(self, *args)
+```
+
+```python
+groups = defaultdict(lambda: None)
+```
+
+```python
+last_group = None
+```
+
+```python
+clear = __init__
+```
+
+## ParamsProto
+
+```python
+class ParamsProto(Bear, metaclass=Meta)
+```
+
+## ParamsProto.__init__
+
+```python
+def __init__(self, _deps=None, _prefix=None, **children)
+```
+
+default init function, called after __new__.
+
+## find_ancestors
+
+```python
+def find_ancestors(cls)
+```
+
+Find all ancestors of a class.
+
+Args:
+    cls:
+
+Returns:
+
+## PrefixProto
+
+```python
+class PrefixProto(ParamsProto)
+```
+
+A ParamsProto class with prefix set to True.
+
+Since we override the __init_subclass__ method, the returned classes instance is
+still a ParamsProto class. NOT a PrefixProto class.
+
+### Inherited members
+
+- `__init__` — from `params_proto.v2.proto.ParamsProto`
+
+## is_subclass
+
+```python
+def is_subclass(cls, *, ancestors=(ParamsProto, PrefixProto), extra=tuple())
+```
+
+## is_base_class
+
+```python
+def is_base_class(cls, extra=tuple())
+```
+
+Check if a class is a base class of ParamsProto.
+
+Args:
+    cls:
+
+Returns:
+
+## update
+
+```python
+def update(Config: Union[type, Meta, ParamsProto], override)
+```
+
+Update a ParamsProto namespace, or instance
+
+by the override dictionary. Note the dictionary
+    is dot.separated
+
+dot-keys are not yet implemented.
+
+Args:
+    Config:
+    override:
+
+Returns:
+
+## Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`all_available`](/reference/parse_env_template#all_available) — `params_proto.parse_env_template.all_available`
+- [`dot_to_deps`](/reference/v2/utils#dot_to_deps) — `params_proto.v2.utils.dot_to_deps`

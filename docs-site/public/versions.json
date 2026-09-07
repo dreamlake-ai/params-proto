@@ -1,0 +1,66 @@
+{
+  "current": "3.3.0",
+  "stable": "3.3.0",
+  "aliases": {
+    "latest": "https://params-proto.dreamlake.ai",
+    "stable": "https://params-proto.dreamlake.ai"
+  },
+  "versions": [
+    {
+      "version": "3.3.0",
+      "url": "https://params-proto.dreamlake.ai"
+    },
+    {
+      "version": "3.2.0 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.2.0/"
+    },
+    {
+      "version": "3.1.0 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.1.0/"
+    },
+    {
+      "version": "3.0.0-rc27 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc27/"
+    },
+    {
+      "version": "3.0.0-rc25 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc25/"
+    },
+    {
+      "version": "3.0.0-rc23 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc23/"
+    },
+    {
+      "version": "3.0.0-rc20 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc20/"
+    },
+    {
+      "version": "3.0.0-rc17 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc17/"
+    },
+    {
+      "version": "3.0.0-rc10 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc10/"
+    },
+    {
+      "version": "3.0.0-rc8 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc8/"
+    },
+    {
+      "version": "3.0.0-rc7 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc7/"
+    },
+    {
+      "version": "3.0.0-rc6 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc6/"
+    },
+    {
+      "version": "3.0.0-rc4 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc4/"
+    },
+    {
+      "version": "3.0.0-rc3 (Read the Docs)",
+      "url": "https://params-proto.readthedocs.io/en/v3.0.0-rc3/"
+    }
+  ]
+}

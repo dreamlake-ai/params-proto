@@ -1,0 +1,33 @@
+---
+title: "params_proto.parse_env_template"
+section: "API reference"
+order: 411
+description: "Python API reference for params_proto.parse_env_template"
+---
+
+# params_proto.parse_env_template
+
+## parse_env_template
+
+```python
+def parse_env_template(template: str) -> List[str]
+```
+
+Extract and return the environment variable names from a given string template.
+
+:param template: A string template that potentially contains environment variables
+                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
+:return: A list of environment variable names found in the template.
+
+## all_available
+
+```python
+def all_available(template: str, strict=True) -> bool
+```
+
+Check if all environment variables in the template are available in the current environment.
+
+:param template: A string template that potentially contains environment variables
+                 in the format $VAR_NAME, $&#123;VAR_NAME&#125;, or similar.
+:param strict: If True, treat empty environment variables as undefined. Otherwise, treat them as defined.
+:return: True if all environment variables are available, False otherwise.

@@ -1,0 +1,78 @@
+---
+title: "params_proto.v1.params_proto"
+section: "API reference"
+order: 416
+description: "Python API reference for params_proto.v1.params_proto"
+---
+
+# params_proto.v1.params_proto
+
+## is_hidden
+
+```python
+def is_hidden(k: str) -> bool
+```
+
+return True is method is hidden
+
+## ParamsProto
+
+```python
+class ParamsProto(DefaultBear)
+```
+
+Parameter ptype Class, has toDict method and __proto__ attribute for the original namespace object.
+
+## ParamsProto.__init__
+
+```python
+def __init__(self, proto, **d)
+```
+
+## Proto
+
+```python
+def Proto(default: T, help=None, dtype=None, aliases=None, **kwargs) -> T
+```
+
+## BoolFlag
+
+```python
+def BoolFlag(default: bool, help=None, aliases=None, **kwargs) -> T
+```
+
+this one generates a boolean flag that requires no arguments.
+
+The value of the flag is the opposite of the default.
+if default is True, then --bool-flag (such as --no-flag) would return False.
+if default is False, then (such as --render) would return True.
+
+## prefix_proto
+
+```python
+def prefix_proto(prefix_or_fn: Union[str, None, Callable]=None, parse=False, **ext)
+```
+
+## cli_parse
+
+```python
+def cli_parse(proto: T) -> T
+```
+
+parser command line options, and repackage into a typed object.
+
+:param proto: T
+
+## proto_signature
+
+```python
+def proto_signature(parameter_prototype, need_self=False)
+```
+
+## proto_partial
+
+```python
+def proto_partial(proto, method=False)
+```
+
+Overrides the function with values from the Proto Object.

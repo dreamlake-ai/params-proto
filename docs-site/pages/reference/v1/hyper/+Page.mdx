@@ -1,0 +1,85 @@
+---
+title: "params_proto.v1.hyper"
+section: "API reference"
+order: 415
+description: "Python API reference for params_proto.v1.hyper"
+---
+
+# params_proto.v1.hyper
+
+## dot_join
+
+```python
+def dot_join(*keys)
+```
+
+remove Nones from the keys, but not '',
+
+## key_items
+
+```python
+def key_items(d, prefix=None)
+```
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]]
+returns wtf
+
+## ProxyObject
+
+```python
+class ProxyObject(object)
+```
+
+## ProxyObject.__init__
+
+```python
+def __init__(self, hook, prefix=None)
+```
+
+## flatten_items
+
+```python
+def flatten_items(row) -> Iterable[Item]
+```
+
+## Sweep
+
+```python
+class Sweep
+```
+
+## Sweep.__init__
+
+```python
+def __init__(self)
+```
+
+## Sweep.set_param
+
+```python
+def set_param(self, name, params, prefix=None)
+```
+
+## Sweep.product
+
+```python
+def product(self, Strut: T) -> ContextManager[T]
+```
+
+## Sweep.zip
+
+```python
+def zip(self, Strut: T) -> ContextManager[T]
+```
+
+## Sweep.set
+
+```python
+def set(self, Strut: T) -> ContextManager[T]
+```
+
+## Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`is_private`](/reference/v2/proto#is_private) — `params_proto.v2.proto.is_private`

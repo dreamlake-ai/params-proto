@@ -1,0 +1,47 @@
+---
+title: "params_proto.v2.utils"
+section: "API reference"
+order: 421
+description: "Python API reference for params_proto.v2.utils"
+---
+
+# params_proto.v2.utils
+
+## clean_ansi
+
+```python
+def clean_ansi(string: str)
+```
+
+## dot_to_deps
+
+```python
+def dot_to_deps(dot_dict, *prefixes)
+```
+
+## read_deps
+
+```python
+def read_deps(*path: str, should_flatten: bool=True) -> dict
+```
+
+Read YAML configuration file with additional functionality for Fast NeRF.
+
+Parameters
+----------
+path: path to the config file
+should_flatten: whether to flatten dicts within the config file
+
+Returns
+-------
+Dict where the config is flattened and base configuration loaded,
+if applicable.
+
+## flatten
+
+```python
+def flatten(nested_dict: dict, parent_key: str='', sep: str='.', generic_key: str='_flatten') -> dict
+```
+
+Flatten configuration dict. Use the "_flatten: False" key and value
+to flatten the dict in the YAML configuration files.
