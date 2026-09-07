@@ -136,3 +136,7 @@ uv.lock
 # Rope project settings
 .ropeproject
 
+
+# Local immutable documentation deployment archives (copy to archive branch)
+/build-archives/
+/.netlify/

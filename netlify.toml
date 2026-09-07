@@ -1,0 +1,10 @@
+[build]
+  base = "docs-site"
+  command = "corepack pnpm install --frozen-lockfile && corepack pnpm build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[context.branch-deploy]
+[context.deploy-preview]
