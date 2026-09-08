@@ -46,15 +46,57 @@
       "order": 313
     },
     {
-      "slug": "compatibility",
-      "title": "Compatibility",
+      "slug": "compatibility/v1-configuration",
+      "title": "v1 \u00b7 Configuration",
       "modules": [
-        "params_proto.v1*",
-        "params_proto.v2*"
+        "params_proto.v1",
+        "params_proto.v1.params_proto"
       ],
-      "description": "These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation.",
-      "intro": "These are the v1 and v2 compatibility APIs bundled with the selected v3 source. They are not snapshots of historical releases; use the version selector for archived documentation.\n\n```python\nfrom params_proto.v2 import ParamsProto, Proto, PrefixProto\n```\n\nUse [migration](/migration) when upgrading. Module headings below distinguish v1 from v2 definitions, including classes with the same name.",
-      "order": 314
+      "description": "Legacy v1 parameter declarations, flags, prefixes, and CLI decorators.",
+      "intro": "Legacy v1 parameter declarations, flags, prefixes, and CLI decorators.\n\nThese compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.",
+      "order": 321
+    },
+    {
+      "slug": "compatibility/v1-sweeps",
+      "title": "v1 \u00b7 Sweeps",
+      "modules": [
+        "params_proto.v1.hyper"
+      ],
+      "description": "Legacy v1 sweep construction, iteration, and supporting utilities.",
+      "intro": "Legacy v1 sweep construction, iteration, and supporting utilities.\n\nThese compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.",
+      "order": 322
+    },
+    {
+      "slug": "compatibility/v2-configuration",
+      "title": "v2 \u00b7 Configuration",
+      "modules": [
+        "params_proto.v2",
+        "params_proto.v2.proto"
+      ],
+      "description": "Legacy v2 ParamsProto classes, typed values, flags, and argument handling.",
+      "intro": "Legacy v2 ParamsProto classes, typed values, flags, and argument handling.\n\nThese compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.",
+      "order": 323
+    },
+    {
+      "slug": "compatibility/v2-sweeps",
+      "title": "v2 \u00b7 Sweeps",
+      "modules": [
+        "params_proto.v2.hyper"
+      ],
+      "description": "Legacy v2 Sweep composition, iteration, serialization, and loading.",
+      "intro": "Legacy v2 Sweep composition, iteration, serialization, and loading.\n\nThese compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.",
+      "order": 324
+    },
+    {
+      "slug": "compatibility/v2-helpers",
+      "title": "v2 \u00b7 Helpers",
+      "modules": [
+        "params_proto.v2.partial",
+        "params_proto.v2.utils"
+      ],
+      "description": "Legacy v2 partial application, dependency dictionaries, and formatting helpers.",
+      "intro": "Legacy v2 partial application, dependency dictionaries, and formatting helpers.\n\nThese compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.",
+      "order": 325
     }
   ],
   "exclude": {

@@ -1,0 +1,324 @@
+---
+title: "v1 \u00b7 Configuration"
+section: "Compatibility"
+order: 321
+description: "Legacy v1 parameter declarations, flags, prefixes, and CLI decorators."
+tocLevel: 3
+---
+
+import "../../autodoc.css"
+
+# v1 · Configuration
+
+Legacy v1 parameter declarations, flags, prefixes, and CLI decorators.
+
+These compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`is_hidden`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--is_hidden) | function | `params_proto.v1.params_proto` |
+| [`ParamsProto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--paramsproto) | class | `params_proto.v1.params_proto` |
+| [`Proto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto) | function | `params_proto.v1.params_proto` |
+| [`BoolFlag`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--boolflag) | function | `params_proto.v1.params_proto` |
+| [`prefix_proto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--prefix_proto) | function | `params_proto.v1.params_proto` |
+| [`cli_parse`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--cli_parse) | function | `params_proto.v1.params_proto` |
+| [`proto_signature`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto_signature) | function | `params_proto.v1.params_proto` |
+| [`proto_partial`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto_partial) | function | `params_proto.v1.params_proto` |
+| [`PREFIXES`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--prefixes) | attribute | `params_proto.v1.params_proto` |
+
+<a id="params_proto.v1" />
+
+## params_proto.v1
+
+<a id="params_proto.v1--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`is_hidden`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--is_hidden) — `params_proto.v1.params_proto.is_hidden`
+- [`ParamsProto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--paramsproto) — `params_proto.v1.params_proto.ParamsProto`
+- [`Proto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto) — `params_proto.v1.params_proto.Proto`
+- [`BoolFlag`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--boolflag) — `params_proto.v1.params_proto.BoolFlag`
+- [`prefix_proto`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--prefix_proto) — `params_proto.v1.params_proto.prefix_proto`
+- [`cli_parse`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--cli_parse) — `params_proto.v1.params_proto.cli_parse`
+- [`proto_signature`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto_signature) — `params_proto.v1.params_proto.proto_signature`
+- [`proto_partial`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--proto_partial) — `params_proto.v1.params_proto.proto_partial`
+- [`PREFIXES`](/reference/compatibility/v1-configuration#params_proto.v1.params_proto--prefixes) — `params_proto.v1.params_proto.PREFIXES`
+<a id="params_proto.v1.params_proto" />
+
+## params_proto.v1.params_proto
+
+<a id="params_proto.v1.params_proto--is_hidden" />
+
+### `is_hidden`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.is&#95;hidden</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L43">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>is&#95;hidden(<span className="py-api-param">k</span>: <span className="py-api-type">str</span>) → <span className="py-api-type">bool</span></code></pre>
+<div className="py-api-description">
+
+return True is method is hidden
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>k</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">bool</span></code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--paramsproto" />
+
+### `ParamsProto`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.ParamsProto</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L100">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ParamsProto(<span className="py-api-param">proto</span>, <span className="py-api-param">&#42;&#42;d</span>)</code></pre>
+<p className="py-api-meta">Bases: <span className="py-api-type">DefaultBear</span></p>
+<div className="py-api-description">
+
+Parameter ptype Class, has toDict method and __proto__ attribute for the original namespace object.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>proto</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;d</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--paramsproto.__init__" />
+
+#### `ParamsProto.__init__`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.ParamsProto.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L103">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>ParamsProto.&#95;&#95;init&#95;&#95;(<span className="py-api-param">proto</span>, <span className="py-api-param">&#42;&#42;d</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>proto</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;d</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--proto" />
+
+### `Proto`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.Proto</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L139">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Proto(<span className="py-api-param">default</span>: <span className="py-api-type">T</span>, <span className="py-api-param">help</span> = <span className="py-api-default">None</span>, <span className="py-api-param">dtype</span> = <span className="py-api-default">None</span>, <span className="py-api-param">aliases</span> = <span className="py-api-default">None</span>, <span className="py-api-param">&#42;&#42;kwargs</span>) → <span className="py-api-type">T</span></code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">T</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>help</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>dtype</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>aliases</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">T</span></code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--boolflag" />
+
+### `BoolFlag`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.BoolFlag</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L145">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>BoolFlag(<span className="py-api-param">default</span>: <span className="py-api-type">bool</span>, <span className="py-api-param">help</span> = <span className="py-api-default">None</span>, <span className="py-api-param">aliases</span> = <span className="py-api-default">None</span>, <span className="py-api-param">&#42;&#42;kwargs</span>) → <span className="py-api-type">T</span></code></pre>
+<div className="py-api-description">
+
+this one generates a boolean flag that requires no arguments.
+
+The value of the flag is the opposite of the default.
+if default is True, then --bool-flag (such as --no-flag) would return False.
+if default is False, then (such as --render) would return True.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>default</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>help</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>aliases</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;kwargs</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">T</span></code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--prefix_proto" />
+
+### `prefix_proto`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.prefix&#95;proto</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L162">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>prefix&#95;proto(<span className="py-api-param">prefix&#95;or&#95;fn</span>: <span className="py-api-type">Union</span>[<span className="py-api-type">str</span>, <span className="py-api-type">None</span>, <span className="py-api-type">Callable</span>] = <span className="py-api-default">None</span>, <span className="py-api-param">parse</span> = <span className="py-api-default">False</span>, <span className="py-api-param">&#42;&#42;ext</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>prefix&#95;or&#95;fn</code></td><td><code><span className="py-api-type">Union</span>[<span className="py-api-type">str</span>, <span className="py-api-type">None</span>, <span className="py-api-type">Callable</span>]</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+<tr><td><code>parse</code></td><td><code>—</code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+<tr><td><code>&#42;&#42;ext</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--cli_parse" />
+
+### `cli_parse`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.cli&#95;parse</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L225">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>cli&#95;parse(<span className="py-api-param">proto</span>: <span className="py-api-type">T</span>) → <span className="py-api-type">T</span></code></pre>
+<div className="py-api-description">
+
+parser command line options, and repackage into a typed object.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>proto</code></td><td><code><span className="py-api-type">T</span></code><br /><span className="py-api-default">required</span></td><td>T</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">T</span></code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--proto_signature" />
+
+### `proto_signature`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.proto&#95;signature</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L329">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>proto&#95;signature(<span className="py-api-param">parameter&#95;prototype</span>, <span className="py-api-param">need&#95;self</span> = <span className="py-api-default">False</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>parameter&#95;prototype</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>need&#95;self</code></td><td><code>—</code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--proto_partial" />
+
+### `proto_partial`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.proto&#95;partial</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L356">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>proto&#95;partial(<span className="py-api-param">proto</span>, <span className="py-api-param">method</span> = <span className="py-api-default">False</span>)</code></pre>
+<div className="py-api-description">
+
+Overrides the function with values from the Proto Object.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>proto</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>method</code></td><td><code>—</code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v1.params_proto--prefixes" />
+
+### `PREFIXES`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">attribute</span>
+<code className="py-api-name">params&#95;proto.v1.params&#95;proto.PREFIXES</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v1/params_proto.py#L157">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>PREFIXES = []</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>

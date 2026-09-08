@@ -12,7 +12,7 @@ initDocs({
   },
   pages: import.meta.glob('./pages/**/+Page.mdx', {eager: true}),
   rawPages: import.meta.glob('./pages/**/+Page.mdx', {eager: true, query: '?raw', import: 'default'}),
-  sectionOrder: ['Getting started', 'Key concepts', 'Examples', 'API reference', 'Release history'],
+  sectionOrder: ['Getting started', 'Key concepts', 'Examples', 'API reference', 'Compatibility', 'Release history'],
   tabs: [
     {id: 'guides', label: 'Guides', numeral: 'I', landing: '/', urlPrefix: '/guides'},
     {id: 'reference', label: 'API Reference', numeral: 'II', landing: '/reference', urlPrefix: '/reference'},

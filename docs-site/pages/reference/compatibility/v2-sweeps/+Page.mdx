@@ -1,0 +1,534 @@
+---
+title: "v2 \u00b7 Sweeps"
+section: "Compatibility"
+order: 324
+description: "Legacy v2 Sweep composition, iteration, serialization, and loading."
+tocLevel: 3
+---
+
+import "../../autodoc.css"
+
+# v2 · Sweeps
+
+Legacy v2 Sweep composition, iteration, serialization, and loading.
+
+These compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`dot_join`](/reference/compatibility/v2-sweeps#params_proto.v2.hyper--dot_join) | function | `params_proto.v2.hyper` |
+| [`key_items`](/reference/compatibility/v2-sweeps#params_proto.v2.hyper--key_items) | function | `params_proto.v2.hyper` |
+| [`flatten_items`](/reference/compatibility/v2-sweeps#params_proto.v2.hyper--flatten_items) | function | `params_proto.v2.hyper` |
+| [`Sweep`](/reference/compatibility/v2-sweeps#params_proto.v2.hyper--sweep) | class | `params_proto.v2.hyper` |
+
+<a id="params_proto.v2.hyper" />
+
+## params_proto.v2.hyper
+
+<a id="params_proto.v2.hyper--dot_join" />
+
+### `dot_join`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.dot&#95;join</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L9">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>dot&#95;join(<span className="py-api-param">&#42;keys</span>)</code></pre>
+<div className="py-api-description">
+
+remove Nones from the keys, but not '',
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;keys</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--key_items" />
+
+### `key_items`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.key&#95;items</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L20">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>key&#95;items(<span className="py-api-param">d</span>, <span className="py-api-param">prefix</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
+
+Takes in tuples of [key, value], or [None, [[key, value], ...]]
+returns wtf
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>d</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>prefix</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--flatten_items" />
+
+### `flatten_items`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.flatten&#95;items</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L30">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>flatten&#95;items(<span className="py-api-param">row</span>) → <span className="py-api-type">Iterable</span>[<span className="py-api-type">Item</span>]</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>row</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">Iterable</span>[<span className="py-api-type">Item</span>]</code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep" />
+
+### `Sweep`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">class</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L43">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep(<span className="py-api-param">&#42;protos</span>: <a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--meta">Meta</a>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;protos</code></td><td><code><a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--meta">Meta</a></code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Attributes</p>
+<table className="py-api-fields">
+<thead><tr><th>Name</th><th>Type / value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><a id="params_proto.v2.hyper--sweep.file" /><code>file</code></td><td><code>None</code></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.each" />
+
+#### `Sweep.each`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.each</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L50">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.each(<span className="py-api-param">fn</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>fn</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.__init__" />
+
+#### `Sweep.__init__`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.&#95;&#95;init&#95;&#95;</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L55">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.&#95;&#95;init&#95;&#95;(<span className="py-api-param">&#42;protos</span>: <a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--meta">Meta</a>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;protos</code></td><td><code><a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--meta">Meta</a></code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.items" />
+
+#### `Sweep.items`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.items</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L105">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.items()</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.list" />
+
+#### `Sweep.list`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.list</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L109">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.list</code></pre>
+<div className="py-api-description">
+
+returns self as a list. Currently not idempotent. Might become idempotent in the future.
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.dataframe" />
+
+#### `Sweep.dataframe`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.dataframe</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L114">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.dataframe</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.noot" />
+
+#### `Sweep.noot`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.noot</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L130">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.noot</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.snack" />
+
+#### `Sweep.snack`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.snack</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L136">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.snack</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.original" />
+
+#### `Sweep.original`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.original</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L170">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.original</code></pre>
+<div className="py-api-description">
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.set_param" />
+
+#### `Sweep.set_param`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.set&#95;param</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L201">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.set&#95;param(<span className="py-api-param">name</span>, <span className="py-api-param">params</span>, <span className="py-api-param">prefix</span> = <span className="py-api-default">None</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>name</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>params</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>prefix</code></td><td><code>—</code><br /><span className="py-api-default"> = None</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.product" />
+
+#### `Sweep.product`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.product</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L207">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.product: <span className="py-api-type">ContextManager</span>[<span className="py-api-type">None</span>]</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Type</p>
+<p><code><span className="py-api-type">ContextManager</span>[<span className="py-api-type">None</span>]</code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.zip" />
+
+#### `Sweep.zip`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.zip</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L224">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.zip: <span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Type</p>
+<p><code><span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.set" />
+
+#### `Sweep.set`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.set</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L241">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.set: <span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Type</p>
+<p><code><span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.chain" />
+
+#### `Sweep.chain`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">property</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.chain</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L249">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.chain: <span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Type</p>
+<p><code><span className="py-api-type">ContextManager</span>[<span className="py-api-type">T</span>]</code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.save" />
+
+#### `Sweep.save`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.save</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L264">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.save(<span className="py-api-param">filename</span> = <span className="py-api-default">&#x27;sweep.jsonl&#x27;</span>, <span className="py-api-param">overwrite</span> = <span className="py-api-default">True</span>, <span className="py-api-param">verbose</span> = <span className="py-api-default">True</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>filename</code></td><td><code>—</code><br /><span className="py-api-default"> = &#x27;sweep.jsonl&#x27;</span></td><td>—</td></tr>
+<tr><td><code>overwrite</code></td><td><code>—</code><br /><span className="py-api-default"> = True</span></td><td>—</td></tr>
+<tr><td><code>verbose</code></td><td><code>—</code><br /><span className="py-api-default"> = True</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.log" />
+
+#### `Sweep.log`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">static method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.log</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L289">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.log(<span className="py-api-param">deps</span>, <span className="py-api-param">filename</span>)</code></pre>
+<div className="py-api-description">
+
+append deps object to a JSONL log file, used as a helper function
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>deps</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>filename</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.read" />
+
+#### `Sweep.read`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">static method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.read</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L297">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.read(<span className="py-api-param">filename</span>)</code></pre>
+<div className="py-api-description">
+
+Read JSONL log files, used as a helper function
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>filename</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--sweep.load" />
+
+#### `Sweep.load`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">method</span>
+<code className="py-api-name">params&#95;proto.v2.hyper.Sweep.load</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/hyper.py#L312">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>Sweep.load(<span className="py-api-param">file</span> = <span className="py-api-default">&#x27;sweep.jsonl&#x27;</span>, <span className="py-api-param">strict</span> = <span className="py-api-default">True</span>, <span className="py-api-param">silent</span> = <span className="py-api-default">False</span>)</code></pre>
+<div className="py-api-description">
+
+Loading sweep state from a jsonl file:
+
+Note: **Important Caveat** When multiple prefix-free ParamsProto objects are present,
+    We sweep through all of the proto objects and sets the attribute to the first
+    proto with the correct key. This first-attr approach works because the ParamsProto
+    object also generates argparse parameters, which means repetitive arguments are
+    not possible.
+
+    However this would fail in cases where attributes are dynamically added to an
+    argument object. The `sweep.jsonl` file loses this type of information, therefore
+    there is no way to recover this type of attributes. So the user should try to
+    either use PrefixProto, or explicitly define the attributes.
+
+Usage Pattern 1: Loading from a file::
+
+```python
+sweep = Sweep(Args, RUN).load('sweep.jsonl')
+for i, deps in enumerate(sweep):
+    assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+```
+
+Usage Pattern 2: Loading from a sweep list object or a pandas DataFrame::
+
+```python
+sweep_list = Sweep.read(sweep.jsonl)
+sweep = Sweep(Args, RUN).load(sweep_list)
+for i, deps in enumerate(sweep):
+    assert RUN.job_id == i + 1, "the job_id in that sweep.json should be 1-based."
+```
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>file</code></td><td><code>—</code><br /><span className="py-api-default"> = &#x27;sweep.jsonl&#x27;</span></td><td>—</td></tr>
+<tr><td><code>strict</code></td><td><code>—</code><br /><span className="py-api-default"> = True</span></td><td>—</td></tr>
+<tr><td><code>silent</code></td><td><code>—</code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.hyper--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`Meta`](/reference/compatibility/v2-configuration#params_proto.v2.proto--meta) — `params_proto.v2.proto.Meta`
+- [`ParamsProto`](/reference/compatibility/v2-configuration#params_proto.v2.proto--paramsproto) — `params_proto.v2.proto.ParamsProto`
+- [`Proto`](/reference/compatibility/v2-configuration#params_proto.v2.proto--proto) — `params_proto.v2.proto.Proto`

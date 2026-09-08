@@ -3,5 +3,9 @@
   "environment/+Page.mdx",
   "sweeps/+Page.mdx",
   "cli/+Page.mdx",
-  "compatibility/+Page.mdx"
+  "compatibility/v1-configuration/+Page.mdx",
+  "compatibility/v1-sweeps/+Page.mdx",
+  "compatibility/v2-configuration/+Page.mdx",
+  "compatibility/v2-sweeps/+Page.mdx",
+  "compatibility/v2-helpers/+Page.mdx"
 ]

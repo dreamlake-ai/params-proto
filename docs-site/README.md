@@ -18,3 +18,5 @@ The generator owns only files in `pages/reference/.autodoc-py.json`; it
 preserves the handwritten overview. `public/_redirects` preserves old module
 URLs. `api-route-migrations.json` records the original module/symbol mapping.
 The package version and generator revision are independent.
+
+Compatibility references live under their own sidebar section. `api-pages.json` groups them by version and task; `compatibility-overview.mdx` supplies the landing page. `CompatibilityRedirect` preserves symbol bookmarks from the previous combined page. Run the generation script before building.

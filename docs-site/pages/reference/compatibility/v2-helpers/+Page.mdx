@@ -1,0 +1,189 @@
+---
+title: "v2 \u00b7 Helpers"
+section: "Compatibility"
+order: 325
+description: "Legacy v2 partial application, dependency dictionaries, and formatting helpers."
+tocLevel: 3
+---
+
+import "../../autodoc.css"
+
+# v2 · Helpers
+
+Legacy v2 partial application, dependency dictionaries, and formatting helpers.
+
+These compatibility APIs ship with the selected source version. See the [compatibility overview](/reference/compatibility) for other v1/v2 APIs, or [migration](/migration) when upgrading.
+
+## API index
+
+| Name | Kind | Defined in |
+| --- | --- | --- |
+| [`proto_partial`](/reference/compatibility/v2-helpers#params_proto.v2.partial--proto_partial) | function | `params_proto.v2.partial` |
+| [`clean_ansi`](/reference/compatibility/v2-helpers#params_proto.v2.utils--clean_ansi) | function | `params_proto.v2.utils` |
+| [`dot_to_deps`](/reference/compatibility/v2-helpers#params_proto.v2.utils--dot_to_deps) | function | `params_proto.v2.utils` |
+| [`read_deps`](/reference/compatibility/v2-helpers#params_proto.v2.utils--read_deps) | function | `params_proto.v2.utils` |
+| [`flatten`](/reference/compatibility/v2-helpers#params_proto.v2.utils--flatten) | function | `params_proto.v2.utils` |
+
+<a id="params_proto.v2.partial" />
+
+## params_proto.v2.partial
+
+<a id="params_proto.v2.partial--proto_partial" />
+
+### `proto_partial`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.partial.proto&#95;partial</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/partial.py#L7">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>proto&#95;partial(<span className="py-api-param">proto</span>: <a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--paramsproto">ParamsProto</a>, <span className="py-api-param">method</span> = <span className="py-api-default">False</span>)</code></pre>
+<div className="py-api-description">
+
+Overrides the function with values from the Proto Object.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>proto</code></td><td><code><a className="py-api-type" href="/reference/compatibility/v2-configuration#params_proto.v2.proto--paramsproto">ParamsProto</a></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>method</code></td><td><code>—</code><br /><span className="py-api-default"> = False</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.partial--public-imports" />
+
+### Public imports
+
+These symbols are available from this module. Their definitions are documented in the linked modules.
+
+- [`ParamsProto`](/reference/compatibility/v2-configuration#params_proto.v2.proto--paramsproto) — `params_proto.v2.proto.ParamsProto`
+<a id="params_proto.v2.utils" />
+
+## params_proto.v2.utils
+
+<a id="params_proto.v2.utils--clean_ansi" />
+
+### `clean_ansi`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.utils.clean&#95;ansi</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L8">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>clean&#95;ansi(<span className="py-api-param">string</span>: <span className="py-api-type">str</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>string</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.utils--dot_to_deps" />
+
+### `dot_to_deps`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.utils.dot&#95;to&#95;deps</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L12">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>dot&#95;to&#95;deps(<span className="py-api-param">dot&#95;dict</span>, <span className="py-api-param">&#42;prefixes</span>)</code></pre>
+<div className="py-api-description">
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>dot&#95;dict</code></td><td><code>—</code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>&#42;prefixes</code></td><td><code>—</code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+</div>
+</section>
+
+<a id="params_proto.v2.utils--read_deps" />
+
+### `read_deps`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.utils.read&#95;deps</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L42">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>read&#95;deps(<span className="py-api-param">&#42;path</span>: <span className="py-api-type">str</span>, <span className="py-api-param">should&#95;flatten</span>: <span className="py-api-type">bool</span> = <span className="py-api-default">True</span>) → <span className="py-api-type">dict</span></code></pre>
+<div className="py-api-description">
+
+Read YAML configuration file with additional functionality for Fast NeRF.
+
+Parameters
+----------
+path: path to the config file
+should_flatten: whether to flatten dicts within the config file
+
+Returns
+-------
+Dict where the config is flattened and base configuration loaded,
+if applicable.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>&#42;path</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default">variadic</span></td><td>—</td></tr>
+<tr><td><code>should&#95;flatten</code></td><td><code><span className="py-api-type">bool</span></code><br /><span className="py-api-default"> = True</span></td><td>Keyword-only parameter.</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">dict</span></code></p>
+
+</div>
+</section>
+
+<a id="params_proto.v2.utils--flatten" />
+
+### `flatten`
+
+<section className="py-api">
+<div className="py-api-header">
+<span className="py-api-kind">function</span>
+<code className="py-api-name">params&#95;proto.v2.utils.flatten</code>
+<a className="py-api-source" href="https://github.com/dreamlake-ai/params-proto/blob/v3.3.0/src/params_proto/v2/utils.py#L78">Source ↗</a>
+</div>
+<pre className="py-api-signature"><code>flatten(<span className="py-api-param">nested&#95;dict</span>: <span className="py-api-type">dict</span>, <span className="py-api-param">parent&#95;key</span>: <span className="py-api-type">str</span> = <span className="py-api-default">&#x27;&#x27;</span>, <span className="py-api-param">sep</span>: <span className="py-api-type">str</span> = <span className="py-api-default">&#x27;.&#x27;</span>, <span className="py-api-param">generic&#95;key</span>: <span className="py-api-type">str</span> = <span className="py-api-default">&#x27;&#95;flatten&#x27;</span>) → <span className="py-api-type">dict</span></code></pre>
+<div className="py-api-description">
+
+Flatten configuration dict. Use the "_flatten: False" key and value
+to flatten the dict in the YAML configuration files.
+
+<p className="py-api-section-label">Parameters</p>
+<table className="py-api-fields">
+<thead><tr><th>Parameter</th><th>Type / default</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>nested&#95;dict</code></td><td><code><span className="py-api-type">dict</span></code><br /><span className="py-api-default">required</span></td><td>—</td></tr>
+<tr><td><code>parent&#95;key</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = &#x27;&#x27;</span></td><td>—</td></tr>
+<tr><td><code>sep</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = &#x27;.&#x27;</span></td><td>—</td></tr>
+<tr><td><code>generic&#95;key</code></td><td><code><span className="py-api-type">str</span></code><br /><span className="py-api-default"> = &#x27;&#95;flatten&#x27;</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<p className="py-api-section-label">Returns</p>
+<p><code><span className="py-api-type">dict</span></code></p>
+
+</div>
+</section>
