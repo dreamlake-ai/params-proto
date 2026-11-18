@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vike prerender && node scripts/llms.mjs && pagefind --site dist/client",
+    "build": "vite build && ([ -f dist/client/index.html ] || vike prerender) && node scripts/llms.mjs && pagefind --site dist/client",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dreamlake/dockit": "0.2.27",
+    "@dreamlake/dockit": "0.2.35",
     "@mdx-js/react": "^3.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
