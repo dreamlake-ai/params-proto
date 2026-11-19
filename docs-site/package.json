@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@dreamlake/dockit": "0.2.35",
+    "@dreamlake/dockit": "0.2.36",
     "@mdx-js/react": "^3.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
